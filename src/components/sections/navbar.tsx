@@ -6,10 +6,15 @@ import { Menu, X, Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCurrency } from "@/context/currency-context";
+import { BookingModal } from "@/components/booking-modal";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { currency, toggleCurrency, isLoading } = useCurrency();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,7 +44,7 @@ export function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl text-secondary">
                     <Code2 className="h-6 w-6 text-primary" />
-                    <span>DevFreelance<span className="text-primary">.ai</span></span>
+                    <span>chardeveloper</span>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -53,7 +58,26 @@ export function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Button>Agendar Llamada</Button>
+
+                    {/* Currency Toggle */}
+                    <div className="flex items-center gap-2">
+                        <Label htmlFor="currency-mode" className="text-xs font-medium text-muted-foreground cursor-pointer">
+                            ARS
+                        </Label>
+                        <Switch
+                            id="currency-mode"
+                            checked={currency === "USD"}
+                            onCheckedChange={toggleCurrency}
+                            className="data-[state=checked]:bg-primary"
+                        />
+                        <Label htmlFor="currency-mode" className="text-xs font-medium text-muted-foreground cursor-pointer">
+                            USD
+                        </Label>
+                    </div>
+
+                    <BookingModal>
+                        <Button>Agendar Llamada</Button>
+                    </BookingModal>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -85,7 +109,20 @@ export function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Button className="w-full">Agendar Llamada Gratis</Button>
+                            <div className="flex items-center gap-2 px-2 py-2">
+                                <span className="text-sm">Moneda:</span>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={toggleCurrency}
+                                    className="ml-auto"
+                                >
+                                    {currency}
+                                </Button>
+                            </div>
+                            <BookingModal>
+                                <Button className="w-full">Agendar Llamada Gratis</Button>
+                            </BookingModal>
                         </div>
                     </motion.div>
                 )}

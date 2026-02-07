@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google"; // Import both fonts
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { CurrencyProvider } from "@/context/currency-context";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 // Configure JetBrains Mono
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={cn(inter.variable, jetbrainsMono.variable, inter.className, "antialiased")}>
-        {children}
+        <CurrencyProvider>
+          {children}
+        </CurrencyProvider>
       </body>
     </html>
   );

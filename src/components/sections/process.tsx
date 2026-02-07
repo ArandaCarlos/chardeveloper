@@ -43,17 +43,20 @@ export function Process() {
 
             <div className="relative grid md:grid-cols-4 gap-8">
                 {steps.map((step, index) => (
-                    <div key={index} className="relative z-10">
-                        <div className="mb-6 relative">
-                            <span className="text-6xl font-black text-white/5 absolute -top-4 -left-2 select-none">
+                    <div key={index} className="relative z-10 group">
+                        <div className="mb-6 relative h-20 flex items-end">
+                            {/* Number Background */}
+                            <span className="text-8xl font-black text-white/5 absolute -top-10 left-0 select-none transition-transform group-hover:scale-110 duration-500 ease-out z-0">
                                 {step.number}
                             </span>
-                            <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-primary backdrop-blur-sm border border-white/10 relative z-10">
+
+                            {/* Icon */}
+                            <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-primary backdrop-blur-sm border border-white/10 relative z-10 ml-4 group-hover:-translate-y-2 transition-transform duration-300">
                                 {step.icon}
                             </div>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                        <p className="text-blue-100/80 leading-relaxed text-sm">
+                        <h3 className="text-xl font-bold text-white mb-3 relative z-10">{step.title}</h3>
+                        <p className="text-blue-100/80 leading-relaxed text-sm relative z-10">
                             {step.desc}
                         </p>
                     </div>

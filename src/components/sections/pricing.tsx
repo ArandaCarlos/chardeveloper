@@ -3,57 +3,65 @@ import { Button } from "@/components/ui/button";
 import { Check, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { PriceDisplay } from "@/components/price-display";
+import { BookingModal } from "@/components/booking-modal";
+import Link from "next/link";
 
 export function Pricing() {
     const plans = [
         {
             name: "Starter",
-            price: "$150.000",
+            priceMin: 300,
+            priceMax: 500,
             description: "Perfecto para validar una idea o automatizar procesos simples.",
             features: [
-                "Dashboard simple o Landing Page",
-                "Automatización básica",
-                "Hasta 2 semanas desarrollo",
+                "Dashboard simple o Landing Page optimizada",
+                "Automatización básica (1 workflow)",
+                "Hasta 2 semanas de desarrollo",
                 "2 rondas de ajustes",
                 "Deploy + hosting 3 meses",
-                "Documentación básica"
+                "Documentación básica",
+                "Setup profesional producción"
             ],
             cta: "Agendar Llamada",
             popular: false
         },
         {
             name: "Business",
-            price: "$350.000",
-            description: "Ideal para negocios que necesitan sistemas robustos y escalables.",
+            priceMin: 1500,
+            priceMax: 3000,
+            description: "Ideal para negocios que necesitan sistemas robustos, integraciones y escalabilidad.",
             features: [
-                "Web App Completa",
+                "Web App completa (Auth + Dashboard + Backend)",
                 "Múltiples automatizaciones",
-                "Integraciones complejas",
-                "Hasta 4 semanas desarrollo",
+                "Integraciones API / Pagos / CRM",
+                "Hasta 4 semanas de desarrollo",
                 "Iteraciones ilimitadas durante desarrollo",
                 "Deploy + hosting 6 meses",
-                "Capacitación 1-on-1 team"
+                "Capacitación 1-on-1",
+                "Testing + optimización performance"
             ],
             cta: "Agendar Llamada",
             popular: true
         },
         {
             name: "Enterprise",
-            price: "Custom",
+            priceMin: 5000,
             description: "Para startups o empresas que necesitan un partner tecnológico continuo.",
             features: [
-                "MVP de Startup",
-                "Sistema complejo a medida",
-                "Proyecto ongoing / Retainer",
-                "Timeline flexible",
-                "Equipo dedicado",
-                "Soporte prioritario 24/7",
-                "Mantenimiento incluido"
+                "MVP de Startup o plataforma completa",
+                "Arquitectura avanzada y escalable",
+                "IA integrada / automatizaciones complejas",
+                "Timeline flexible por fases",
+                "Proyecto ongoing / Retainer mensual",
+                "Soporte prioritario",
+                "Monitoreo y mantenimiento incluido"
             ],
             cta: "Contactar",
             popular: false
         }
     ];
+
 
     return (
         <Section id="pricing" background="white">
@@ -80,11 +88,21 @@ export function Pricing() {
 
                         <CardHeader>
                             <CardTitle className="text-2xl font-bold text-neutral-900">{plan.name}</CardTitle>
-                            <div className="mt-4 mb-2">
-                                <span className="text-4xl font-black text-secondary">{plan.price}</span>
-                                {plan.price !== "Custom" && <span className="text-neutral-500 font-medium">/proyecto</span>}
+                            <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-1">
+                                <span className="text-3xl font-black text-secondary">
+                                    {plan.priceMax ? (
+                                        <>
+                                            <PriceDisplay amount={plan.priceMin} /> - <PriceDisplay amount={plan.priceMax} />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Desde <PriceDisplay amount={plan.priceMin} />
+                                        </>
+                                    )}
+                                </span>
                             </div>
-                            <CardDescription className="text-base">{plan.description}</CardDescription>
+                            <span className="text-neutral-500 font-medium text-sm">usd/proyecto (aprox)</span>
+                            <CardDescription className="text-base mt-2">{plan.description}</CardDescription>
                         </CardHeader>
 
                         <CardContent className="flex-1">
@@ -99,13 +117,26 @@ export function Pricing() {
                         </CardContent>
 
                         <CardFooter>
-                            <Button
-                                variant={plan.popular ? "default" : "outline"}
-                                className={`w-full ${plan.popular ? 'shadow-lg shadow-orange-200' : ''}`}
-                                size="lg"
-                            >
-                                {plan.cta}
-                            </Button>
+                            {plan.cta === "Contactar" ? (
+                                <Button
+                                    asChild
+                                    variant={plan.popular ? "default" : "outline"}
+                                    className={`w-full ${plan.popular ? 'shadow-lg shadow-orange-200' : ''}`}
+                                    size="lg"
+                                >
+                                    <Link href="#contacto">Contactar</Link>
+                                </Button>
+                            ) : (
+                                <BookingModal>
+                                    <Button
+                                        variant={plan.popular ? "default" : "outline"}
+                                        className={`w-full ${plan.popular ? 'shadow-lg shadow-orange-200' : ''}`}
+                                        size="lg"
+                                    >
+                                        {plan.cta}
+                                    </Button>
+                                </BookingModal>
+                            )}
                         </CardFooter>
                     </Card>
                 ))}

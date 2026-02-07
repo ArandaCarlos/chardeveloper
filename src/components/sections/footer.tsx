@@ -1,5 +1,7 @@
-import { Code2, Github, Linkedin, Twitter } from "lucide-react";
+import { Code2, Linkedin, Instagram } from "lucide-react";
 import Link from "next/link";
+import { SiTiktok } from "react-icons/si";
+
 
 export function Footer() {
     return (
@@ -25,21 +27,40 @@ export function Footer() {
                     </div>
 
                     <div className="flex gap-4">
-                        <Link href="#" className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all">
+                        <Link
+                            href="https://www.linkedin.com/in/arandacarlosdamian/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all"
+                        >
                             <Linkedin className="w-5 h-5" />
                         </Link>
-                        <Link href="#" className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all">
-                            <Github className="w-5 h-5" />
+
+                        <Link
+                            href="https://www.instagram.com/char.developer/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all"
+                        >
+                            <Instagram className="w-5 h-5" />
                         </Link>
-                        <Link href="#" className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all">
-                            <Twitter className="w-5 h-5" />
+
+                        <Link
+                            href="https://www.tiktok.com/@char.developer"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-neutral-100 rounded-full text-neutral-600 hover:bg-primary hover:text-white transition-all"
+                        >
+                            <SiTiktok className="w-5 h-5" />
                         </Link>
+
                     </div>
+
 
                 </div>
 
                 <div className="mt-12 pt-8 border-t text-center text-sm text-neutral-400">
-                    © {new Date().getFullYear()} DevFreelance.ai. Todos los derechos reservados.
+                    © {new Date().getFullYear()} chardeveloper.com.ar | Todos los derechos reservados.
                 </div>
             </div>
         </footer>

@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { BookingModal } from "@/components/booking-modal";
+import Link from "next/link";
+import Image from "next/image";
 
 export function Hero() {
     return (
@@ -39,12 +42,14 @@ export function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <Button size="lg" className="text-base font-semibold group">
-                                Agendar Llamada Gratis
-                                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </Button>
-                            <Button size="lg" variant="outline" className="text-base">
-                                Ver Casos de Estudio
+                            <BookingModal>
+                                <Button size="lg" className="text-base font-semibold group">
+                                    Agendar Llamada Gratis
+                                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                            </BookingModal>
+                            <Button size="lg" variant="outline" className="text-base" asChild>
+                                <Link href="#casos">Ver Casos de Estudio</Link>
                             </Button>
                         </div>
 
@@ -64,7 +69,7 @@ export function Hero() {
                         </div>
                     </motion.div>
 
-                    {/* Image/Visual - Placeholder for modern dev illustration */}
+                    {/* Image/Visual - YouTube Video Embed */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -72,41 +77,13 @@ export function Hero() {
                         className="top-0 relative"
                     >
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-100 aspect-square md:aspect-[4/3] group">
-                            {/* Simulated Code Editor or Dashboard UI */}
-                            <div className="absolute inset-0 bg-slate-900 p-4 font-mono text-sm leading-relaxed overflow-hidden">
-                                <div className="flex gap-2 mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                    <div className="w-3 h-3 rounded-full bg-green-500" />
-                                </div>
-                                <div className="space-y-2 opacity-90">
-                                    <div className="text-blue-400">import <span className="text-white">OpennAI</span> from <span className="text-green-400">'openai'</span>;</div>
-                                    <div className="text-purple-400">const <span className="text-yellow-300">automateWorkflow</span> = <span className="text-blue-400">async</span> () ={">"} {"{"}</div>
-                                    <div className="pl-4 text-gray-400">// Conectando CRM con WhatsApp</div>
-                                    <div className="pl-4 text-blue-400">const <span className="text-white">leads</span> = <span className="text-blue-400">await</span> crm.<span className="text-yellow-300">getNewLeads</span>();</div>
-                                    <div className="pl-4 text-purple-400">for <span className="text-white">(const lead of leads)</span> {"{"}</div>
-                                    <div className="pl-8 text-blue-400">await <span className="text-yellow-300">generateResponse</span>(lead);</div>
-                                    <div className="pl-8 text-green-400">console.log("Lead contactado: " + lead.id);</div>
-                                    <div className="pl-4 text-purple-400">{"}"}</div>
-                                    <div className="text-purple-400">{"}"}</div>
-                                </div>
-
-                                {/* Floating Cards Overlays for effect */}
-                                <motion.div
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 1, duration: 0.5 }}
-                                    className="absolute bottom-6 right-6 bg-white rounded-lg p-3 shadow-xl flex items-center gap-3 w-48 z-10"
-                                >
-                                    <div className="bg-green-100 p-2 rounded-full text-green-600">
-                                        <CheckCircle2 size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs text-gray-500">Estado</div>
-                                        <div className="text-sm font-bold text-gray-800">Automatizado</div>
-                                    </div>
-                                </motion.div>
-                            </div>
+                            <Image
+                                src="/hero-image.png"
+                                alt="Hero Image"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
                     </motion.div>
                 </div>

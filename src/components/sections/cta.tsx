@@ -1,6 +1,8 @@
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Calendar, Mail } from "lucide-react";
+import { BookingModal } from "@/components/booking-modal";
+import Link from "next/link";
 
 export function CTA() {
     return (
@@ -18,11 +20,15 @@ export function CTA() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <Button size="lg" className="text-base font-semibold shadow-xl shadow-primary/20">
-                        <Calendar className="mr-2 w-5 h-5" /> Agendar Llamada Gratis
-                    </Button>
-                    <Button size="lg" variant="outline" className="text-base bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white">
-                        <Mail className="mr-2 w-5 h-5" /> Enviar Email
+                    <BookingModal>
+                        <Button size="lg" className="text-base font-semibold shadow-xl shadow-primary/20">
+                            <Calendar className="mr-2 w-5 h-5" /> Agendar Llamada Gratis
+                        </Button>
+                    </BookingModal>
+                    <Button asChild size="lg" variant="outline" className="text-base bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white">
+                        <Link href="#contacto">
+                            <Mail className="mr-2 w-5 h-5" /> Enviar Email
+                        </Link>
                     </Button>
                 </div>
 

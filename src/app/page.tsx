@@ -9,6 +9,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
+import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <CTA />
+      <Contact />
       <Footer />
     </main>
   );
