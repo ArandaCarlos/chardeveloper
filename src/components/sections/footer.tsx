@@ -12,7 +12,7 @@ export function Footer() {
                     <div className="flex flex-col items-center md:items-start gap-2">
                         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-secondary">
                             <Code2 className="h-6 w-6 text-primary" />
-                            <span>DevFreelance<span className="text-primary">.ai</span></span>
+                            <span>chardeveloper<span className="text-primary"></span></span>
                         </Link>
                         <p className="text-sm text-muted-foreground">
                             Automatizando el futuro, línea de código a la vez.
