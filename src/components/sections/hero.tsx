@@ -33,7 +33,7 @@ export function Hero() {
                         </div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance mb-6">
-                            Desarrollo soluciones web que <span className="text-primary bg-orange-50 px-2 rounded-lg">automatizan</span> tu negocio
+                            Desarrollo soluciones con IA que <span className="text-primary px-2 py-1 rounded-lg">automatizan</span> tu negocio
                         </h1>
 
                         <p className="text-lg md:text-xl text-muted-foreground mb-8 cursor-text">
@@ -77,12 +77,13 @@ export function Hero() {
                         className="top-0 relative"
                     >
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-100 aspect-square md:aspect-[4/3] group">
-                            <Image
-                                src="/hero-image.png"
-                                alt="Hero Image"
-                                fill
-                                className="object-cover"
-                                priority
+                            <video
+                                src="/presentacion.mp4"
+                                autoPlay
+                                controls
+                                loop
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover"
                             />
                         </div>
                     </motion.div>
