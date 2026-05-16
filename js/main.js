@@ -188,21 +188,66 @@
 
   /* ── TEXT SCRAMBLE on hover for headings ── */
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
-  function scramble(el) {
-    const orig = el.textContent;
-    let iter = 0;
-    const interval = setInterval(() => {
-      el.textContent = orig.split('').map((c, i) => {
-        if (i < iter) return orig[i];
-        if (c === ' ') return ' ';
-        return chars[Math.floor(Math.random() * chars.length)];
-      }).join('');
-      if (iter >= orig.length) clearInterval(interval);
-      iter += 1.5;
-    }, 28);
-  }
   document.querySelectorAll('.svc-name').forEach(el => {
-    el.addEventListener('mouseenter', () => scramble(el));
+    // Save original text once on load
+    el.dataset.orig = el.textContent;
+    
+    el.addEventListener('mouseenter', () => {
+      // Clear any running interval for this specific element
+      if (el.scrambleInterval) clearInterval(el.scrambleInterval);
+      
+      const orig = el.dataset.orig;
+      let iter = 0;
+      
+      el.scrambleInterval = setInterval(() => {
+        el.textContent = orig.split('').map((c, i) => {
+          if (i < iter) return orig[i];
+          if (c === ' ') return ' ';
+          return chars[Math.floor(Math.random() * chars.length)];
+        }).join('');
+        
+        if (iter >= orig.length) {
+          clearInterval(el.scrambleInterval);
+          el.textContent = orig; // Ensure perfectly restored text
+        }
+        iter += 1.5;
+      }, 28);
+    });
   });
+
+  /* ── FORM HANDLING ── */
+  const cform = document.getElementById('contactForm');
+  if (cform) {
+    cform.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = cform.querySelector('.btn-submit');
+      const prevText = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.style.opacity = '0.7';
+      btn.style.pointerEvents = 'none';
+
+      const formData = new FormData(cform);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch(cform.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        if (res.ok) {
+          cform.innerHTML = '<div style="text-align:center; padding:2rem 0;"><h3 style="color:var(--c); margin-bottom:1rem;">¡Mensaje enviado!</h3><p style="color:var(--g);">Recibí tu consulta. En breve me pongo en contacto con vos.</p></div>';
+        } else {
+          throw new Error('Error de servidor');
+        }
+      } catch (err) {
+        alert('Hubo un error enviando el mensaje. Por favor, intentá de nuevo o contactame directo por WhatsApp.');
+        btn.textContent = prevText;
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'all';
+      }
+    });
+  }
 
 })();
