@@ -223,31 +223,29 @@
       const btn = cform.querySelector('.btn-submit');
       const prevText = btn.textContent;
       btn.textContent = 'Enviando...';
-      btn.style.opacity = '0.7';
-      btn.style.pointerEvents = 'none';
+      btn.disabled = true;
 
       const formData = new FormData(cform);
-      const data = Object.fromEntries(formData);
 
       try {
-        const subject = encodeURIComponent("Consulta web - " + data.name);
-        const body = encodeURIComponent(`Hola Carlos,\n\nSoy ${data.name}.\nMi email es: ${data.email}\n\nTe consulto por lo siguiente:\n${data.message}`);
-        
-        window.location.href = `mailto:aranda.carlos.damian@gmail.com?subject=${subject}&body=${body}`;
-        
-        btn.textContent = 'Abriendo tu correo...';
-        setTimeout(() => {
-          btn.textContent = prevText;
-          btn.style.opacity = '1';
-          btn.style.pointerEvents = 'all';
-          cform.reset();
-        }, 3000);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
 
+        const result = await res.json();
+
+        if (res.ok) {
+          cform.innerHTML = '<div style="text-align:center; padding:2rem 0;"><h3 style="color:var(--c); margin-bottom:1rem;">¡Mensaje enviado!</h3><p style="color:var(--g);">Recibí tu consulta. En breve me pongo en contacto con vos.</p></div>';
+        } else {
+          alert('Error: ' + result.message);
+          btn.textContent = prevText;
+          btn.disabled = false;
+        }
       } catch (err) {
-        alert('Hubo un error abriendo el correo. Por favor, contactame directo por WhatsApp.');
+        alert('Algo salió mal. Por favor, intentá de nuevo o escribime directo a WhatsApp.');
         btn.textContent = prevText;
-        btn.style.opacity = '1';
-        btn.style.pointerEvents = 'all';
+        btn.disabled = false;
       }
     });
   }
