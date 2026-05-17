@@ -230,22 +230,21 @@
       const data = Object.fromEntries(formData);
 
       try {
-        const res = await fetch(cform.action, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
+        const subject = encodeURIComponent("Consulta web - " + data.name);
+        const body = encodeURIComponent(`Hola Carlos,\n\nSoy ${data.name}.\nMi email es: ${data.email}\n\nTe consulto por lo siguiente:\n${data.message}`);
         
-        if (res.ok) {
-          cform.innerHTML = '<div style="text-align:center; padding:2rem 0;"><h3 style="color:var(--c); margin-bottom:1rem;">¡Mensaje enviado!</h3><p style="color:var(--g);">Recibí tu consulta. En breve me pongo en contacto con vos.</p></div>';
-        } else {
-          throw new Error('Error de servidor');
-        }
+        window.location.href = `mailto:aranda.carlos.damian@gmail.com?subject=${subject}&body=${body}`;
+        
+        btn.textContent = 'Abriendo tu correo...';
+        setTimeout(() => {
+          btn.textContent = prevText;
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'all';
+          cform.reset();
+        }, 3000);
+
       } catch (err) {
-        alert('Hubo un error enviando el mensaje. Por favor, intentá de nuevo o contactame directo por WhatsApp.');
+        alert('Hubo un error abriendo el correo. Por favor, contactame directo por WhatsApp.');
         btn.textContent = prevText;
         btn.style.opacity = '1';
         btn.style.pointerEvents = 'all';
