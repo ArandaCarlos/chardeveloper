@@ -478,8 +478,8 @@ h1 .hl-m {
 
 .mascot-glow {
   position: absolute;
-  width: 420px;
-  height: 420px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(125, 249, 255, .09) 0%, rgba(255, 45, 155, .05) 45%, transparent 70%);
   bottom: 40px;
@@ -503,7 +503,7 @@ h1 .hl-m {
 .mascot-img {
   position: relative;
   z-index: 2;
-  max-height: 560px;
+  max-height: 680px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 30px rgba(125, 249, 255, .22)) drop-shadow(0 0 60px rgba(255, 45, 155, .1));
