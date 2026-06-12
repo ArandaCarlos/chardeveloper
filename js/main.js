@@ -4,9 +4,9 @@
   /* ── PROJECTS DATA ── */
   const projects = {
     hardx: {
-      num: '// PROYECTO 01',
+      num: 'CASO 01',
       name: 'Hardex',
-      desc: 'Marketplace de compra y venta de hardware usado en Argentina. Cuenta con un sistema de cotización automática, donde ingresás los datos de tu hardware y recibís un rango de precio estimado al momento. Sin esperas ni mensajes previos. Ademas cuenta con un panel de administración para gestionar publicaciones, usuarios y transacciones de forma eficiente.',
+      desc: 'Marketplace de compra y venta de hardware usado en Argentina. Sistema de cotización automática y panel de administración.',
       tags: ['Next.js', 'Supabase', 'MercadoPago', 'IA'],
       link: 'https://hardex.com.ar',
       images: [
@@ -17,9 +17,9 @@
       ]
     },
     presupuestosya: {
-      num: '// PROYECTO 02',
+      num: 'CASO 03',
       name: 'Presupuestos Ya',
-      desc: 'Creador de presupuestos profesionales en 60 segundos. Ideal para freelancers, agencias, profesionales de oficio y cualquier persona que necesite generar presupuestos online claros y atractivos sin perder tiempo. Ingresás los detalles del proyecto y obtenés un presupuesto listo para enviar por link o pdf a tu cliente en menos de un minuto.',
+      desc: 'Creador de presupuestos profesionales en 60 segundos. Ideal para freelancers, agencias y profesionales de oficio. Link público, firma digital y suscripciones automatizadas.',
       tags: ['React', 'Node.js', 'Supabase', 'n8n', 'OpenAI'],
       link: 'https://presupuestosya.app',
       images: [
@@ -30,9 +30,9 @@
       ]
     },
     cody: {
-      num: '// PROYECTO 03',
+      num: 'CASO 02',
       name: 'Cody',
-      desc: 'Agente de WhatsApp construido con OpenAI API y n8n. Atiende consultas, califica leads según criterios definidos y agenda reuniones en cal.com de forma autónoma. Funciona 24/7 sin intervención humana. Hoy está activo para Char.Developer y puede adaptarse a cualquier negocio.',
+      desc: 'Agente de WhatsApp con OpenAI y n8n. Atiende consultas, califica leads y agenda reuniones en cal.com de forma autónoma. Funciona 24/7 sin intervención humana.',
       tags: ['OpenAI API', 'n8n', 'WhatsApp', 'Chatwoot', 'Cal.com'],
       link: '#',
       images: [
@@ -41,10 +41,10 @@
       ]
     },
     fitbox: {
-      num: '// PROYECTO 04',
+      num: 'CASO 01',
       name: 'Fitbox',
-      desc: 'Ecommerce de suplementos nutricionales con un sistema de armado de cajas fit personalizado. Generación de rutinas personalizadas que llega al mail al completar un formulario y un sistema de suscripción para las personas que compran una caja todos los meses.',
-      tags: ['Woocomerce', 'JavaScript', 'Node.js', 'OpenAI'],
+      desc: 'Ecommerce de suplementos con motor de precios automático conectado a cotización del dólar, cálculo de márgenes e impuestos, y recuperación de carritos abandonados.',
+      tags: ['WooCommerce', 'JavaScript', 'Node.js', 'OpenAI'],
       link: 'https://www.fitbox.ar/',
       images: [
         { type: 'img', src: 'images/fitbox/fitbox1.png' },
@@ -54,9 +54,9 @@
       ]
     },
     chambea: {
-      num: '// PROYECTO 05',
+      num: 'CASO 04',
       name: 'Chambea',
-      desc: 'Plataforma de empleo para trabajadores de oficio (plomeros, gasistas, electricistas, etc). Los usuarios pueden crear un perfil profesional, listar sus habilidades y experiencia, y funciona como una guia de paginas amarillas donde se pueden encontrar servicios de calidad.',
+      desc: 'Plataforma de empleo para trabajadores de oficio. Perfiles profesionales, búsqueda y contacto directo por WhatsApp sin registro.',
       tags: ['React', 'Supabase', 'OpenAI'],
       link: 'https://www.chambea.com.ar/',
       images: [
@@ -85,7 +85,6 @@
     linkEl.style.pointerEvents = p.link === '#' ? 'none' : 'all';
     if (p.link === '#') linkEl.textContent = 'Próximamente';
 
-    // build slider
     const track = document.getElementById('sliderTrack');
     const dots = document.getElementById('sliderDots');
     track.innerHTML = '';
@@ -96,8 +95,6 @@
       slide.className = 'slide';
       if (img.type === 'img') {
         slide.innerHTML = `<img src="${img.src}" alt="${p.name} screenshot ${i + 1}" loading="lazy">`;
-      } else {
-        slide.innerHTML = `<div class="slide-placeholder"><span>${img.label}</span></div>`;
       }
       track.appendChild(slide);
       const dot = document.createElement('div');
@@ -126,10 +123,9 @@
 
   function slide(dir) { goSlide(curSlide + dir); }
 
-  // keyboard close + arrow nav
   document.addEventListener('keydown', e => {
     if (!document.getElementById('modalBd').classList.contains('open')) return;
-    if (e.key === 'Escape') { document.getElementById('modalBd').classList.remove('open'); document.body.style.overflow = ''; }
+    if (e.key === 'Escape') { closeModal(); }
     if (e.key === 'ArrowLeft') slide(-1);
     if (e.key === 'ArrowRight') slide(1);
   });
@@ -139,17 +135,51 @@
   window.slide = slide;
   window.goSlide = goSlide;
 
-  /* ── ACCORDION ── */
-  function toggleCard(btn) {
-    const card = btn.closest('.mcard');
-    const wasOpen = card.classList.contains('open');
-    document.querySelectorAll('.mcard.open').forEach(c => c.classList.remove('open'));
-    if (!wasOpen) card.classList.add('open');
+  /* ── INTERACTIVE STACK TABS ── */
+  const tabs = document.querySelectorAll('.stack-tab');
+  const previews = document.querySelectorAll('.stack-preview-item');
+  let autoRotateTimer = null;
+  let currentTabIndex = 0;
+
+  function activateTab(tabName) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+    previews.forEach(p => p.classList.toggle('active', p.dataset.preview === tabName));
+    // Update index
+    tabs.forEach((t, i) => { if (t.dataset.tab === tabName) currentTabIndex = i; });
   }
-  window.toggleCard = toggleCard;
-  // open first by default
-  const firstCard = document.querySelector('.mcard');
-  if (firstCard) firstCard.classList.add('open');
+
+  function autoRotate() {
+    currentTabIndex = (currentTabIndex + 1) % tabs.length;
+    activateTab(tabs[currentTabIndex].dataset.tab);
+  }
+
+  function startAutoRotate() {
+    stopAutoRotate();
+    autoRotateTimer = setInterval(autoRotate, 4000);
+  }
+
+  function stopAutoRotate() {
+    if (autoRotateTimer) clearInterval(autoRotateTimer);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateTab(tab.dataset.tab);
+      stopAutoRotate();
+      // Restart after 8 seconds of inactivity
+      setTimeout(startAutoRotate, 8000);
+    });
+  });
+
+  // Start auto-rotation
+  if (tabs.length > 0) startAutoRotate();
+
+  // Pause on hover
+  const stackPreview = document.querySelector('.stack-preview');
+  if (stackPreview) {
+    stackPreview.addEventListener('mouseenter', stopAutoRotate);
+    stackPreview.addEventListener('mouseleave', startAutoRotate);
+  }
 
   /* ── SCROLL REVEAL ── */
   const io = new IntersectionObserver(es => {
@@ -178,37 +208,23 @@
     });
   });
 
-  /* ── HERO PARALLAX ── */
-  const mascot = document.getElementById('mascot');
-  window.addEventListener('mousemove', e => {
-    const dx = (e.clientX / innerWidth - .5);
-    const dy = (e.clientY / innerHeight - .5);
-    if (mascot) mascot.style.transform = `translateY(${-14 + dy * 8}px) translateX(${dx * 6}px)`;
-  }, { passive: true });
-
   /* ── TEXT SCRAMBLE on hover for headings ── */
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
-  document.querySelectorAll('.svc-name').forEach(el => {
-    // Save original text once on load
+  document.querySelectorAll('.case-name').forEach(el => {
     el.dataset.orig = el.textContent;
-    
     el.addEventListener('mouseenter', () => {
-      // Clear any running interval for this specific element
       if (el.scrambleInterval) clearInterval(el.scrambleInterval);
-      
       const orig = el.dataset.orig;
       let iter = 0;
-      
       el.scrambleInterval = setInterval(() => {
         el.textContent = orig.split('').map((c, i) => {
           if (i < iter) return orig[i];
           if (c === ' ') return ' ';
           return chars[Math.floor(Math.random() * chars.length)];
         }).join('');
-        
         if (iter >= orig.length) {
           clearInterval(el.scrambleInterval);
-          el.textContent = orig; // Ensure perfectly restored text
+          el.textContent = orig;
         }
         iter += 1.5;
       }, 28);
@@ -220,7 +236,7 @@
   if (cform) {
     cform.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = cform.querySelector('.btn-submit');
+      const btn = cform.querySelector('.btn');
       const prevText = btn.textContent;
       btn.textContent = 'Enviando...';
       btn.disabled = true;
@@ -236,7 +252,7 @@
         const result = await res.json();
 
         if (res.ok) {
-          cform.innerHTML = '<div style="text-align:center; padding:2rem 0;"><h3 style="color:var(--c); margin-bottom:1rem;">¡Mensaje enviado!</h3><p style="color:var(--g);">Recibí tu consulta. En breve me pongo en contacto con vos.</p></div>';
+          cform.innerHTML = '<div style="text-align:center; padding:2rem 0;"><h3 style="margin-bottom:0.5rem;">¡Mensaje enviado!</h3><p style="color:var(--text-secondary);">Recibí tu consulta. En breve me pongo en contacto.</p></div>';
         } else {
           alert('Error: ' + result.message);
           btn.textContent = prevText;

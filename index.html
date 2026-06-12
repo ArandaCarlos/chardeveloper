@@ -5,15 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Char.Developer — Sistemas, automatizaciones y productos con IA para pymes que quieren ser más eficientes sin pagar fortunas.">
-  <title>Char.Developer — Sistemas, Automatizaciones e IA para Pymes</title>
+    content="Sistemas conectados, integraciones sin errores y automatización con IA. Ingeniería de sistemas nivel enterprise para empresas en Buenos Aires y el mundo.">
+  <title>Char.Developer — Integraciones, automatización e IA para empresas | Buenos Aires</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Char.Developer — Integraciones, automatización e IA">
+  <meta property="og:description"
+    content="Sistemas conectados, integraciones sin errores y automatización con IA. Ingeniería de sistemas nivel enterprise.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.jpg">
+
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="tu-codigo-de-verificacion-aqui" />
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Char.Developer",
+    "description": "Ingeniero de integraciones, automatización y agentes IA para empresas.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -24,12 +50,12 @@
       <a href="#" class="logo">Char<span>.</span>Developer</a>
       <ul class="nav-links">
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metodo">Método</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#casos">Casos</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
       </ul>
-      <a href="https://cal.com/char.developer/15min" class="nav-btn" target="_blank" rel="noopener">Agendá una
-        llamada</a>
+      <a href="https://cal.com/char.developer/15min" class="nav-btn" target="_blank" rel="noopener">Agendá una llamada
+        →</a>
       <button class="brgr" id="brgr" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -37,336 +63,471 @@
   </nav>
   <div class="mob" id="mob">
     <a href="#servicios">Servicios</a>
-    <a href="#metodo">Método</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="#stack">Stack</a>
+    <a href="#casos">Casos</a>
     <a href="#sobre-mi">Sobre mí</a>
-    <a href="https://cal.com/char.developer/15min" target="_blank" rel="noopener" style="color:var(--c)">Agendá una
-      llamada →</a>
+    <a href="https://cal.com/char.developer/15min" target="_blank" rel="noopener">Agendá una llamada →</a>
   </div>
 
   <!-- ── HERO ── -->
   <section id="hero">
-    <div class="hero-bg">
-      <div class="hgrid"></div>
-      <div class="blob1"></div>
-      <div class="blob2"></div>
-      <div class="sl"></div>
-    </div>
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="hero-label">
-          <span>Sistemas, Automatizaciones e IA &middot; Buenos Aires, AR</span>
-        </div>
-        <h1>
-          Automatizo<br> tu negocio <br> con
-          <span class="hl-c">IA</span> <br>para que
-          <span class="hl-m">trabaje solo.</span>
-        </h1>
-        <p class="hero-sub">
-          Construyo sistemas, automatizaciones y productos con IA para pymes que quieren ser más eficientes
-          sin pagar fortunas. Soluciones específicas para tu negocio, no software genérico.
-        </p>
-        <div class="hero-ctas">
-          <a href="https://cal.com/char.developer/15min" class="btn btn-c" target="_blank" rel="noopener">
-            Agendá una llamada <span>→</span>
-          </a>
-          <a href="#servicios" class="btn btn-g">Ver servicios</a>
-        </div>
-        <div class="hero-stats">
-          <div>
-            <div class="stat-n">6<span>+</span></div>
-            <div class="stat-l">años en tech</div>
-          </div>
-          <div>
-            <div class="stat-n">5<span>+</span></div>
-            <div class="stat-l">proyectos en producción</div>
-          </div>
-          <div>
-            <div class="stat-n">∞</div>
-            <div class="stat-l">mate consumido</div>
-          </div>
-        </div>
+    <div class="hero-pattern"></div>
+    <div class="wrap" style="position:relative; z-index:1;">
+      <div class="hero-pill rv">
+        <span>Integraciones · IA · Buenos Aires</span>
       </div>
-      <div class="hero-mascot">
-        <div class="mascot-glow"></div>
-        <img class="mascot-img" id="mascot" src="images/automatizar1.png" alt="Char — AI Product Builder" width="540"
-          height="680" loading="eager">
+      <h1 class="rv">Sistemas conectados.<br>Datos sin errores.<br>Cero carga manual.</h1>
+      <p class="hero-sub rv d1">
+        Conecto los sistemas de tu empresa y les pongo IA arriba. Con la misma ingeniería que uso para retailers
+        Internacionales: integraciones que no se rompen y procesos que corren solos.
+      </p>
+      <div class="hero-ctas rv d2">
+        <a href="https://cal.com/char.developer/15min" class="btn btn-primary" target="_blank" rel="noopener">
+          Agendá una llamada <span>→</span>
+        </a>
+        <a href="#metodo" class="btn btn-outline">Ver cómo trabajo</a>
+      </div>
+      <div class="hero-stats rv d3">
+        <div>
+          <div class="stat-n">6<span>+</span></div>
+          <div class="stat-l">años de ingeniería</div>
+        </div>
+        <div>
+          <div class="stat-n">5<span>+</span></div>
+          <div class="stat-l">proyectos en producción</div>
+        </div>
+        <div>
+          <div class="stat-n">24/7</div>
+          <div class="stat-l">operación continua</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="sep"></div>
-
-  <!-- ── SERVICIOS ── -->
-  <section id="servicios">
+  <!-- ── INTERACTIVE STACK ── -->
+  <section id="stack" class="stack-section">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <span class="tag">// 01 — Servicios</span>
-        <h2 style="margin-top:.75rem">Lo que construyo<br>para tu negocio</h2>
-      </div>
-      <div class="svc-grid">
-
-        <!-- 01 -->
-        <div class="svc rv">
-          <div class="svc-num">// 01</div>
-          <div class="svc-ico">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <rect x="2" y="6" width="40" height="26" rx="2.5" stroke="#7df9ff" stroke-width="1.4" />
-              <rect x="7" y="10" width="30" height="16" rx="1" fill="#7df9ff" fill-opacity=".04" />
-              <polyline points="11,22 17,15 22,20 28,12 35,16" stroke="#7df9ff" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round" />
-              <line x1="14" y1="32" x2="10" y2="40" stroke="#7df9ff" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="30" y1="32" x2="34" y2="40" stroke="#7df9ff" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="7" y1="40" x2="37" y2="40" stroke="#7df9ff" stroke-width="1.4" stroke-linecap="round" />
-              <circle cx="38" cy="8" r="4" fill="#ff2d9b" fill-opacity=".9" />
-            </svg>
+      <div class="stack-layout">
+        <div class="stack-left rv">
+          <span class="sec-label">Mi Stack</span>
+          <h2>Las herramientas que domino, conectadas a tu medida</h2>
+          <p class="sec-subtitle" style="margin-top:1rem;">Cada proyecto usa una combinación diferente. Hacé clic para
+            ver cómo trabajo con cada una.</p>
+          <div class="stack-tabs">
+            <button class="stack-tab active" data-tab="n8n">
+              <span class="tab-dot"></span>
+              n8n — Automatizaciones
+              <code>&lt;workflow/&gt;</code>
+            </button>
+            <button class="stack-tab" data-tab="oracle">
+              <span class="tab-dot"></span>
+              Integraciones
+              <code>&lt;integration/&gt;</code>
+            </button>
+            <button class="stack-tab" data-tab="openai">
+              <span class="tab-dot"></span>
+              OpenAI — Agentes IA
+              <code>&lt;agent/&gt;</code>
+            </button>
+            <button class="stack-tab" data-tab="supabase">
+              <span class="tab-dot"></span>
+              Supabase — Base de datos
+              <code>&lt;database/&gt;</code>
+            </button>
+            <button class="stack-tab" data-tab="nextjs">
+              <span class="tab-dot"></span>
+              Next.js — Interfaces
+              <code>&lt;app/&gt;</code>
+            </button>
           </div>
-          <div class="svc-name">Automatizaciones</div>
-          <p class="svc-desc">Flujos con n8n que conectan WhatsApp, CRMs, planillas y sistemas internos. Tu negocio
-            funcionando en piloto automático donde antes había trabajo manual repetitivo.</p>
-          <a href="https://cal.com/char.developer/15min" class="svc-cta" target="_blank" rel="noopener">Hablemos de tu
-            caso <span>→</span></a>
         </div>
-
-        <!-- 02 -->
-        <div class="svc rv d1">
-          <div class="svc-num">// 02</div>
-          <div class="svc-ico">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <path d="M22 4 L37 13 L37 31 L22 40 L7 31 L7 13 Z" stroke="#ff2d9b" stroke-width="1.4" fill="#ff2d9b"
-                fill-opacity=".03" />
-              <circle cx="22" cy="22" r="6" stroke="#ff2d9b" stroke-width="1.4" />
-              <line x1="22" y1="4" x2="22" y2="16" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="22" y1="28" x2="22" y2="40" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="7" y1="13" x2="16" y2="18" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="28" y1="26" x2="37" y2="31" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="37" y1="13" x2="28" y2="18" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="16" y1="26" x2="7" y2="31" stroke="#ff2d9b" stroke-width="1.4" stroke-linecap="round" />
-            </svg>
+        <div class="stack-preview rv d1">
+          <!-- n8n Preview -->
+          <div class="stack-preview-item active" data-preview="n8n">
+            <div class="preview-workflow">
+              <div class="workflow-node">
+                <div class="workflow-node-icon" style="background:#FEF3C7;">⚡</div>
+                <div class="workflow-node-text">
+                  <strong>Webhook — Nuevo pedido</strong>
+                  <span>Escucha el POST del ecommerce</span>
+                </div>
+              </div>
+              <div class="workflow-connector"></div>
+              <div class="workflow-node">
+                <div class="workflow-node-icon" style="background:#DBEAFE;">🔄</div>
+                <div class="workflow-node-text">
+                  <strong>Validar stock en ERP</strong>
+                  <span>API REST → sistema central</span>
+                </div>
+              </div>
+              <div class="workflow-connector"></div>
+              <div class="workflow-node">
+                <div class="workflow-node-icon" style="background:#D1FAE5;">📄</div>
+                <div class="workflow-node-text">
+                  <strong>Generar factura AFIP</strong>
+                  <span>Facturación electrónica automática</span>
+                </div>
+              </div>
+              <div class="workflow-connector"></div>
+              <div class="workflow-node">
+                <div class="workflow-node-icon" style="background:#EDE9FE;">✅</div>
+                <div class="workflow-node-text">
+                  <strong>Notificar por WhatsApp</strong>
+                  <span>Confirmación al cliente + al equipo</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="svc-name">Agentes con IA</div>
-          <p class="svc-desc">Agentes inteligentes que atienden, venden y dan soporte 24/7 por WhatsApp y otros canales.
-            Con memoria, contexto de tu negocio y sin necesidad de sumar personal.</p>
-          <a href="https://cal.com/char.developer/15min" class="svc-cta" target="_blank" rel="noopener">Hablemos de tu
-            caso <span>→</span></a>
-        </div>
 
-        <!-- 03 -->
-        <div class="svc rv d2">
-          <div class="svc-num">// 03</div>
-          <div class="svc-ico">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <circle cx="22" cy="17" r="9" stroke="#ff8800" stroke-width="1.4" />
-              <path d="M14 27 L8 40" stroke="#ff8800" stroke-width="1.4" stroke-linecap="round" />
-              <path d="M30 27 L36 40" stroke="#ff8800" stroke-width="1.4" stroke-linecap="round" />
-              <line x1="6" y1="40" x2="38" y2="40" stroke="#ff8800" stroke-width="1.4" stroke-linecap="round" />
-              <circle cx="22" cy="17" r="4" stroke="#ff8800" stroke-width="1.2" fill="#ff8800" fill-opacity=".1" />
-              <path d="M20 17 L21.5 18.5 L25 15" stroke="#ff8800" stroke-width="1.3" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <circle cx="37" cy="7" r="4.5" stroke="#ff8800" stroke-width="1.2" fill="#ff8800" fill-opacity=".1" />
-              <path d="M35.2 7 L36.7 8.5 L40 5" stroke="#ff8800" stroke-width="1.2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+          <!-- Oracle OIC Preview -->
+          <div class="stack-preview-item" data-preview="oracle">
+            <div class="preview-integration">
+              <div class="integration-row">
+                <div class="integration-box">
+                  <div style="font-size:1.5rem;">🏢</div>
+                  <strong>ERP</strong>
+                  <span>Oracle / SAP</span>
+                </div>
+                <div class="integration-arrow">→</div>
+                <div class="integration-center">
+                  <strong>OIC Engine</strong>
+                  <span>Transform & Route</span>
+                </div>
+                <div class="integration-arrow">→</div>
+                <div class="integration-box">
+                  <div style="font-size:1.5rem;">🛒</div>
+                  <strong>Ecommerce</strong>
+                  <span>WooCommerce</span>
+                </div>
+              </div>
+              <div class="integration-row">
+                <div class="integration-box">
+                  <div style="font-size:1.5rem;">📊</div>
+                  <strong>CRM</strong>
+                  <span>Zoho / Salesforce</span>
+                </div>
+                <div class="integration-arrow">→</div>
+                <div class="integration-center">
+                  <strong>OIC Engine</strong>
+                  <span>Sync & Validate</span>
+                </div>
+                <div class="integration-arrow">→</div>
+                <div class="integration-box">
+                  <div style="font-size:1.5rem;">📋</div>
+                  <strong>Facturación</strong>
+                  <span>AFIP / ARCA</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="svc-name">Web Apps y Sistemas</div>
-          <p class="svc-desc">Herramientas a medida para que tu negocio trabaje sobre algo propio, eficiente y
-            específico.
-            Nada de adaptarte a software genérico con mil funciones que no necesitás.</p>
-          <a href="https://cal.com/char.developer/15min" class="svc-cta" target="_blank" rel="noopener">Hablemos de tu
-            caso <span>→</span></a>
-        </div>
 
-        <!-- 04 -->
-        <div class="svc rv d3">
-          <div class="svc-num">// 04</div>
-          <div class="svc-ico">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <rect x="10" y="20" width="24" height="20" rx="2" stroke="#aa88ff" stroke-width="1.4" />
-              <path d="M10 28 L34 28" stroke="#aa88ff" stroke-width="1.4" />
-              <path d="M22 28 L22 40" stroke="#aa88ff" stroke-width="1.4" />
-              <circle cx="22" cy="10" r="6" stroke="#aa88ff" stroke-width="1.4" fill="#aa88ff" fill-opacity=".1" />
-              <path d="M22 16 L22 20" stroke="#aa88ff" stroke-width="1.4" />
-              <circle cx="10" cy="14" r="3" fill="#aa88ff" />
-              <circle cx="34" cy="14" r="3" fill="#aa88ff" />
-            </svg>
+          <!-- OpenAI Preview -->
+          <div class="stack-preview-item" data-preview="openai">
+            <div class="preview-chat">
+              <div class="chat-header">
+                <div class="chat-avatar">🤖</div>
+                <div class="chat-header-text">
+                  <strong>Cody — Agente de ventas</strong>
+                  <span>● En línea</span>
+                </div>
+              </div>
+              <div class="chat-messages">
+                <div class="chat-msg bot">¡Hola! Soy Cody, el asistente virtual de la empresa. ¿En qué te puedo ayudar?
+                </div>
+                <div class="chat-msg user" style="animation-delay:0.2s">Hola, quería consultar por el servicio de
+                  automatización</div>
+                <div class="chat-msg bot" style="animation-delay:0.4s">¡Genial! Para poder orientarte mejor, ¿podrías
+                  contarme qué sistemas usás actualmente y qué procesos te gustaría automatizar?</div>
+                <div class="chat-msg user" style="animation-delay:0.6s">Usamos WooCommerce y tenemos problemas con el
+                  stock</div>
+                <div class="chat-msg bot" style="animation-delay:0.8s">Perfecto, justamente es uno de los casos más
+                  comunes. Te agendo una llamada de 15 min con Carlos para el análisis. ¿Te viene bien mañana a las
+                  10hs?</div>
+              </div>
+            </div>
           </div>
-          <div class="svc-name">Negocios AI-First</div>
-          <p class="svc-desc">La IA como sistema nervioso de tu empresa. Un sistema que sabe qué pasa en tu negocio
-            en tiempo real — ventas, clientes, operaciones — todo en una sola interfaz.</p>
-          <a href="https://cal.com/char.developer/15min" class="svc-cta" target="_blank" rel="noopener">Hablemos de tu
-            caso <span>→</span></a>
-        </div>
 
+          <!-- Supabase Preview -->
+          <div class="stack-preview-item" data-preview="supabase">
+            <div class="preview-table">
+              <div class="mock-table">
+                <div class="mock-table-header">
+                  <div>Cliente</div>
+                  <div>Integración</div>
+                  <div>Última sync</div>
+                  <div>Estado</div>
+                </div>
+                <div class="mock-table-row">
+                  <div>Fitbox AR</div>
+                  <div>WooCommerce → ERP</div>
+                  <div>Hace 2 min</div>
+                  <div><span class="status-badge ok">Activo</span></div>
+                </div>
+                <div class="mock-table-row">
+                  <div>Retail EU</div>
+                  <div>SAP → Magento</div>
+                  <div>Hace 5 min</div>
+                  <div><span class="status-badge ok">Activo</span></div>
+                </div>
+                <div class="mock-table-row">
+                  <div>Cody Bot</div>
+                  <div>WhatsApp → CRM</div>
+                  <div>Hace 1 min</div>
+                  <div><span class="status-badge ok">Activo</span></div>
+                </div>
+                <div class="mock-table-row">
+                  <div>PresupYa</div>
+                  <div>Stripe → Supabase</div>
+                  <div>Hace 8 min</div>
+                  <div><span class="status-badge pending">Sync</span></div>
+                </div>
+                <div class="mock-table-row">
+                  <div>Chambea</div>
+                  <div>Auth → Profiles</div>
+                  <div>Hace 12 min</div>
+                  <div><span class="status-badge ok">Activo</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next.js Preview -->
+          <div class="stack-preview-item" data-preview="nextjs">
+            <div class="preview-ui">
+              <div class="ui-browser">
+                <div class="ui-browser-bar">
+                  <div class="ui-dot" style="background:#ff5f56;"></div>
+                  <div class="ui-dot" style="background:#ffbd2e;"></div>
+                  <div class="ui-dot" style="background:#27c93f;"></div>
+                  <div class="ui-browser-url">presupuestosya.app/dashboard</div>
+                </div>
+                <div class="ui-browser-body">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+                    <div>
+                      <div style="font-weight:700; font-size:1.1rem;">Dashboard</div>
+                      <div style="font-size:0.78rem; color:var(--text-muted);">Bienvenido, Carlos</div>
+                    </div>
+                    <div class="btn btn-primary" style="font-size:0.75rem; padding:0.4rem 0.8rem;">+ Nuevo presupuesto
+                    </div>
+                  </div>
+                  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; margin-bottom:1rem;">
+                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
+                      <div style="font-size:0.7rem; color:var(--text-muted);">Enviados</div>
+                      <div style="font-size:1.3rem; font-weight:800;">147</div>
+                    </div>
+                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
+                      <div style="font-size:0.7rem; color:var(--text-muted);">Aceptados</div>
+                      <div style="font-size:1.3rem; font-weight:800; color:#16a34a;">89</div>
+                    </div>
+                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
+                      <div style="font-size:0.7rem; color:var(--text-muted);">Ingresos</div>
+                      <div style="font-size:1.3rem; font-weight:800;">$2.4M</div>
+                    </div>
+                  </div>
+                  <div style="background:var(--bg-muted); border-radius:8px; height:80px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="sep"></div>
+  <!-- ── TECH GRID ── -->
+  <section class="tech-grid-section">
+    <div class="wrap">
+      <div class="tech-grid rv">
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5" />
+            <path d="M10 16h12M16 10v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span>n8n</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.5" />
+            <path d="M12 12l8 8M20 12l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span>Oracle OIC</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 6l10 6v12l-10 6L6 24V12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+          <span>OpenAI</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="6" y="8" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5" />
+            <path d="M6 14h20" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="11" cy="20" r="2" fill="currentColor" />
+          </svg>
+          <span>Supabase</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M18 6L8 18h8l-2 8 10-12h-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+          <span>Next.js</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="6" y="6" width="20" height="20" rx="10" stroke="currentColor" stroke-width="1.5" />
+            <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>WhatsApp API</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.5" />
+            <path d="M10 16h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M16 10v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span>Zoho</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4 14h24" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+          <span>WooCommerce</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M8 8h16v16H8z" stroke="currentColor" stroke-width="1.5" />
+            <path d="M12 8v16M8 12h16M8 20h16" stroke="currentColor" stroke-width="1" />
+          </svg>
+          <span>PL/SQL</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M6 10l10-4 10 4v12l-10 4-10-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M6 10l10 4 10-4M16 14v14" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+          <span>REST APIs</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" stroke="currentColor" stroke-width="1.5" />
+            <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-cell">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="6" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5" />
+            <path d="M6 12h20M12 6v20" stroke="currentColor" stroke-width="1" />
+          </svg>
+          <span>GCP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICIOS (Dark Section) ── -->
+  <section id="servicios" class="dark-section">
+    <div class="wrap">
+      <span class="sec-label rv">Servicios</span>
+      <h2 class="rv">Lo que construyo para tu negocio</h2>
+      <p class="sec-subtitle rv d1">Soluciones de ingeniería que resuelven problemas reales. Sin jerga, sin humo.</p>
+      <div class="bento-grid rv d2">
+        <div class="bento-card span-2">
+          <div class="bento-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+              <polyline points="6,10 10,7 14,11 18,6" />
+            </svg>
+          </div>
+          <h3>Integraciones entre sistemas</h3>
+          <p>Tu ERP, tu ecommerce, tu facturación y tu logística hablando entre sí, sin doble carga y sin errores de
+            stock. Integraciones con reintentos automáticos, trazabilidad completa y cero pérdida de datos.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+            </svg>
+          </div>
+          <h3>Automatizaciones</h3>
+          <p>Los procesos repetitivos de tu operación corriendo en piloto automático: leads, emails, datos, reportes.
+          </p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h3>Agentes con IA</h3>
+          <p>Agentes que atienden, venden y dan soporte 24/7 por WhatsApp — conectados de verdad a tus sistemas.</p>
+        </div>
+        <div class="bento-card span-2">
+          <div class="bento-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 3v18" />
+            </svg>
+          </div>
+          <h3>Sistemas a medida</h3>
+          <p>Herramientas propias para que tu negocio opere sobre algo específico y eficiente. Nada de adaptarte a
+            software genérico con mil funciones que no necesitás.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── MÉTODO ── -->
-  <section id="metodo">
+  <section id="metodo" class="method-section">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <span class="tag">// 02 — El método</span>
-        <h2 style="margin-top:.75rem">Cómo trabajo</h2>
+      <div style="text-align:center; margin-bottom:1rem;">
+        <span class="sec-label rv">Método</span>
+        <h2 class="rv">Cómo trabajo</h2>
       </div>
-      <div class="method-steps rv">
-
-        <div class="mcard">
-          <div class="mcard-inner" onclick="toggleCard(this)">
-            <div class="mcard-num">01</div>
-            <div class="mcard-title">Entender</div>
-            <div class="mcard-arrow">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-            </div>
-          </div>
-          <div class="mcard-body">
-            <div class="mcard-body-inner">
-              <div>
-                <div class="mcard-accent"></div>
-              </div>
-              <div class="mcard-details">
-                <p class="mcard-desc">Primera reunión de diagnóstico. Entiendo cómo funciona tu negocio por dentro
-                  antes de proponer cualquier herramienta. Sin eso, no arranco.</p>
-                <div class="mcard-questions">
-                  <div class="mcard-q">¿Qué procesos te están comiendo tiempo?</div>
-                  <div class="mcard-q">¿Qué herramientas usás hoy y cómo se conectan?</div>
-                  <div class="mcard-q">¿Dónde sentís que estás perdiendo plata o clientes?</div>
-                </div>
-                <div class="mcard-output">Mapeo del proceso actual y cuellos de botella</div>
-              </div>
-            </div>
-          </div>
+      <div class="method-timeline rv d1">
+        <div class="method-step">
+          <div class="method-num">01</div>
+          <div class="method-dot"></div>
+          <h3>Entender</h3>
+          <p>Diagnóstico de tu negocio antes de proponer herramientas.</p>
         </div>
-
-        <div class="mcard">
-          <div class="mcard-inner" onclick="toggleCard(this)">
-            <div class="mcard-num">02</div>
-            <div class="mcard-title">Proponer</div>
-            <div class="mcard-arrow">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-            </div>
-          </div>
-          <div class="mcard-body">
-            <div class="mcard-body-inner">
-              <div>
-                <div class="mcard-accent" style="background:linear-gradient(180deg,#44d4ff,transparent)"></div>
-              </div>
-              <div class="mcard-details">
-                <p class="mcard-desc">Diseñamos la solución ideal. Qué automatizar, dónde poner IA, qué construir
-                  a medida y qué dejar como está. Todo con números claros.</p>
-                <div class="mcard-questions">
-                  <div class="mcard-q">Automatizaciones con n8n y qué sistemas conectar</div>
-                  <div class="mcard-q">Dónde tiene sentido poner un agente con IA</div>
-                  <div class="mcard-q">Qué necesita una herramienta propia vs. software existente</div>
-                </div>
-                <div class="mcard-output">Arquitectura completa del sistema propuesto</div>
-              </div>
-            </div>
-          </div>
+        <div class="method-step">
+          <div class="method-num">02</div>
+          <div class="method-dot"></div>
+          <h3>Proponer</h3>
+          <p>Arquitectura completa: qué automatizar, dónde IA, qué a medida.</p>
         </div>
-
-        <div class="mcard">
-          <div class="mcard-inner" onclick="toggleCard(this)">
-            <div class="mcard-num">03</div>
-            <div class="mcard-title">Definir</div>
-            <div class="mcard-arrow">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-            </div>
-          </div>
-          <div class="mcard-body">
-            <div class="mcard-body-inner">
-              <div>
-                <div class="mcard-accent" style="background:linear-gradient(180deg,#aa88ff,transparent)"></div>
-              </div>
-              <div class="mcard-details">
-                <p class="mcard-desc">Cerramos el scope exacto. Qué resuelve cada parte del sistema, bajo qué reglas
-                  opera y qué resultado concreto esperamos. Todo por escrito, sin grises.</p>
-                <div class="mcard-questions">
-                  <div class="mcard-q">¿Qué tareas resuelve la IA sola? ¿Cuándo interviene un humano?</div>
-                  <div class="mcard-q">Reglas de negocio, tono de voz y límites del sistema</div>
-                  <div class="mcard-q">Métricas de éxito y resultados esperados</div>
-                </div>
-                <div class="mcard-output">Documento de scope y reglas del sistema</div>
-              </div>
-            </div>
-          </div>
+        <div class="method-step">
+          <div class="method-num">03</div>
+          <div class="method-dot"></div>
+          <h3>Definir</h3>
+          <p>Scope exacto, reglas de negocio y métricas de éxito por escrito.</p>
         </div>
-
-        <div class="mcard">
-          <div class="mcard-inner" onclick="toggleCard(this)">
-            <div class="mcard-num">04</div>
-            <div class="mcard-title">Construir</div>
-            <div class="mcard-arrow">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-            </div>
-          </div>
-          <div class="mcard-body">
-            <div class="mcard-body-inner">
-              <div>
-                <div class="mcard-accent" style="background:linear-gradient(180deg,var(--m),transparent)"></div>
-              </div>
-              <div class="mcard-details">
-                <p class="mcard-desc">Desarrollo e integración. Automatizaciones, agentes, web apps — lo que haga falta.
-                  Probamos todo con casos reales antes de lanzar.</p>
-                <div class="mcard-questions">
-                  <div class="mcard-q">Integraciones con n8n, APIs y sistemas existentes</div>
-                  <div class="mcard-q">Desarrollo de interfaces y herramientas a medida</div>
-                  <div class="mcard-q">Pruebas de estrés y edge-cases</div>
-                </div>
-                <div class="mcard-output">Sistema desplegado y funcionando en entorno real</div>
-              </div>
-            </div>
-          </div>
+        <div class="method-step">
+          <div class="method-num">04</div>
+          <div class="method-dot"></div>
+          <h3>Construir</h3>
+          <p>Desarrollo con manejo de errores, reintentos y logs desde el día uno.</p>
         </div>
-
-        <div class="mcard">
-          <div class="mcard-inner" onclick="toggleCard(this)">
-            <div class="mcard-num">05</div>
-            <div class="mcard-title">Ajustar</div>
-            <div class="mcard-arrow">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-            </div>
-          </div>
-          <div class="mcard-body">
-            <div class="mcard-body-inner">
-              <div>
-                <div class="mcard-accent" style="background:linear-gradient(180deg,var(--o),transparent)"></div>
-              </div>
-              <div class="mcard-details">
-                <p class="mcard-desc">El sistema aprende y mejora. Analizamos datos reales, corregimos lo que no
-                  funciona y medimos el impacto en tiempo y plata ahorrada.</p>
-                <div class="mcard-questions">
-                  <div class="mcard-q">Análisis de datos y conversaciones reales</div>
-                  <div class="mcard-q">Refinamiento de prompts y lógica de negocio</div>
-                  <div class="mcard-q">Medición de ROI en tiempo y costos operativos</div>
-                </div>
-                <div class="mcard-output">Sistema optimizado y mejora continua</div>
-              </div>
-            </div>
-          </div>
+        <div class="method-step">
+          <div class="method-num">05</div>
+          <div class="method-dot"></div>
+          <h3>Ajustar</h3>
+          <p>Datos reales, correcciones y mejora continua del sistema.</p>
         </div>
-
       </div>
     </div>
   </section>
-
-  <div class="sep"></div>
 
   <!-- ── MODAL ── -->
   <div class="modal-backdrop" id="modalBd" onclick="closeModal(event)">
@@ -411,111 +572,85 @@
     </div>
   </div>
 
-  <!-- ── PORTFOLIO ── -->
-  <section id="portfolio">
+  <!-- ── CASOS ── -->
+  <section id="casos" class="cases-section">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <span class="tag">// 03 — Portfolio</span>
-        <h2 style="margin-top:.75rem">Proyectos en producción</h2>
-      </div>
-      <div class="proj-grid">
+      <span class="sec-label rv">Casos</span>
+      <h2 class="rv">Proyectos reales en producción</h2>
+      <div class="cases-grid">
 
-        <div class="proj rv" onclick="openModal('cody')">
-          <div class="proj-top"></div>
-          <div class="proj-thumb">
-            <img src="images/cody/cody1.png" alt="Cody screenshot" loading="lazy">
-            <div class="proj-thumb-overlay"><span>Ver proyecto</span></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-n">// PROYECTO 01</div>
-            <div class="proj-name">Cody</div>
-            <p class="proj-desc">Agente de WhatsApp con IA que atiende, califica y agenda reuniones solo. 24/7.</p>
-            <div class="proj-tags">
-              <span class="ptag">Claude API</span>
-              <span class="ptag">n8n</span>
-              <span class="ptag">WhatsApp</span>
-            </div>
-            <button class="proj-lnk">Ver proyecto <span>→</span></button>
-          </div>
-        </div>
-
-        <div class="proj rv d1" onclick="openModal('hardx')">
-          <div class="proj-top"></div>
-          <div class="proj-thumb">
-            <img src="images/hardex/hardex1.png" alt="Hardex screenshot" loading="lazy">
-            <div class="proj-thumb-overlay"><span>Ver proyecto</span></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-n">// PROYECTO 02</div>
-            <div class="proj-name">Hardex</div>
-            <p class="proj-desc">Marketplace de hardware usado en Argentina. Comprá y vendé componentes entre personas.
-            </p>
-            <div class="proj-tags">
-              <span class="ptag">Next.js</span>
-              <span class="ptag">Supabase</span>
-              <span class="ptag">Stripe</span>
-              <span class="ptag">IA</span>
-            </div>
-            <button class="proj-lnk">Ver proyecto <span>→</span></button>
-          </div>
-        </div>
-
-        <div class="proj rv d2" onclick="openModal('presupuestosya')">
-          <div class="proj-top"></div>
-          <div class="proj-thumb">
-            <img src="images/prespuestosya/pya1.png" alt="Presupuestos Ya screenshot" loading="lazy">
-            <div class="proj-thumb-overlay"><span>Ver proyecto</span></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-n">// PROYECTO 03</div>
-            <div class="proj-name">Presupuestos Ya</div>
-            <p class="proj-desc">Creador de presupuestos profesionales en 60 segundos.</p>
-            <div class="proj-tags">
-              <span class="ptag">React</span>
-              <span class="ptag">Node.js</span>
-              <span class="ptag">PostgreSQL</span>
-            </div>
-            <button class="proj-lnk">Ver proyecto <span>→</span></button>
-          </div>
-        </div>
-
-        <div class="proj rv d2" onclick="openModal('fitbox')">
-          <div class="proj-top"></div>
-          <div class="proj-thumb">
+        <div class="case-card rv" onclick="openModal('fitbox')">
+          <div class="case-thumb">
             <img src="images/fitbox/fitbox1.png" alt="Fitbox screenshot" loading="lazy">
-            <div class="proj-thumb-overlay"><span>Ver proyecto</span></div>
+            <div class="case-thumb-overlay"><span>Ver caso</span></div>
           </div>
-          <div class="proj-body">
-            <div class="proj-n">// PROYECTO 04</div>
-            <div class="proj-name">Fitbox</div>
-            <p class="proj-desc">Ecommerce de suplementos nutricionales con Boxes personalizados.</p>
-            <div class="proj-tags">
-              <span class="ptag">Woocommerce</span>
-              <span class="ptag">JavaScript</span>
-              <span class="ptag">Node.js</span>
-              <span class="ptag">OpenAI</span>
+          <div class="case-body">
+            <div class="case-number">CASO 01</div>
+            <div class="case-name">Fitbox — Ecommerce con precios autónomos</div>
+            <p class="case-desc"><strong>Problema:</strong> actualizar precios a mano con cada movimiento del dólar.<br>
+              <strong>Resultado:</strong> 0 horas semanales de gestión manual.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">0 horas manuales</span>
+              <span class="case-tag">Sin errores de precio</span>
             </div>
-            <button class="proj-lnk">Ver proyecto <span>→</span></button>
+            <a href="https://www.fitbox.ar/" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
           </div>
         </div>
 
-        <div class="proj rv d2" onclick="openModal('chambea')">
-          <div class="proj-top"></div>
-          <div class="proj-thumb">
-            <img src="images/chambea/chambea1.png" alt="Chambea screenshot" loading="lazy">
-            <div class="proj-thumb-overlay"><span>Ver proyecto</span></div>
+        <div class="case-card rv d1" onclick="openModal('cody')">
+          <div class="case-thumb">
+            <img src="images/cody/cody1.png" alt="Cody screenshot" loading="lazy">
+            <div class="case-thumb-overlay"><span>Ver caso</span></div>
           </div>
-          <div class="proj-body">
-            <div class="proj-n">// PROYECTO 05</div>
-            <div class="proj-name">Chambea</div>
-            <p class="proj-desc">Plataforma de empleo para trabajadores independientes.</p>
-            <div class="proj-tags">
-              <span class="ptag">React</span>
-              <span class="ptag">Node.js</span>
-              <span class="ptag">Supabase</span>
-              <span class="ptag">Claude</span>
+          <div class="case-body">
+            <div class="case-number">CASO 02</div>
+            <div class="case-name">Cody — Agente de ventas por WhatsApp</div>
+            <p class="case-desc"><strong>Problema:</strong> consultas que se perdían sin responder.<br>
+              <strong>Resultado:</strong> atención 24/7 y reuniones agendadas solas.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Atención 24/7</span>
+              <span class="case-tag">Agendamiento automático</span>
             </div>
-            <button class="proj-lnk">Ver proyecto <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="case-card rv d2" onclick="openModal('presupuestosya')">
+          <div class="case-thumb">
+            <img src="images/prespuestosya/pya1.png" alt="Presupuestos Ya screenshot" loading="lazy">
+            <div class="case-thumb-overlay"><span>Ver caso</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-number">CASO 03</div>
+            <div class="case-name">Presupuestos Ya — SaaS de presupuestos</div>
+            <p class="case-desc"><strong>Problema:</strong> profesionales que perdían trabajos por demorar días.<br>
+              <strong>Resultado:</strong> presupuestos en 60 segundos con suscriptores pagos.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Presupuestos en 60s</span>
+              <span class="case-tag">Suscripciones activas</span>
+            </div>
+            <a href="https://presupuestosya.app" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
+          </div>
+        </div>
+
+        <div class="case-card rv d3" onclick="openModal('chambea')">
+          <div class="case-thumb">
+            <img src="images/chambea/chambea1.png" alt="Chambea screenshot" loading="lazy">
+            <div class="case-thumb-overlay"><span>Ver caso</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-number">CASO 04</div>
+            <div class="case-name">Chambea — Plataforma de oficios</div>
+            <p class="case-desc"><strong>Problema:</strong> conectar clientes con trabajadores sin fricción.<br>
+              <strong>Resultado:</strong> contacto directo por WhatsApp en dos clics.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Cero fricción</span>
+              <span class="case-tag">Contacto directo</span>
+            </div>
+            <a href="https://www.chambea.com.ar/" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
           </div>
         </div>
 
@@ -523,52 +658,47 @@
     </div>
   </section>
 
-  <div class="sep"></div>
-
   <!-- ── SOBRE MÍ ── -->
-  <section id="sobre-mi">
+  <section id="sobre-mi" class="about-section">
     <div class="wrap">
       <div class="about-inner">
-        <div class="about-mascot-wrap rv">
-          <div class="about-glow"></div>
-          <img class="about-img" src="images/yo3.0.png" alt="Char tomando mate" width="360" height="450" loading="lazy">
+        <div class="rv">
+          <img class="about-img" src="images/yo.jpeg" alt="Carlos Aranda" loading="lazy">
         </div>
-        <div class="rv d1">
-          <span class="tag">// 04 — Sobre mí</span>
-          <h2 style="margin-top:.75rem">Carlos Aranda.<br>Buenos Aires, AR.<br>AI Product Builder.</h2>
-          <div class="rule"></div>
-          <p>Más de 6 años trabajando en tecnología para empresas de distintos países y distintas industrias. Aprendí
-            cómo funcionan los negocios por dentro — las ineficiencias, los procesos rotos, lo que se pierde
-            entre planillas y WhatsApps.</p>
-          </br>
-          <p>Hoy llevo esa experiencia a pymes que necesitan soluciones reales. Antes tenías dos opciones: adaptarte a
-            software genérico con mil funciones que no necesitás, o pagar un desarrollo a medida que costaba una
-            fortuna.
-            Con IA se puede construir algo específico para cada negocio, rápido y accesible. Eso es lo que hago.</p>
+        <div class="about-text rv d1">
+          <span class="sec-label">Sobre mí</span>
+          <h2>Carlos Aranda</h2>
+          <p style="color:var(--text-muted); margin-bottom:1.5rem;">Ingeniero de integraciones y automatización · Buenos
+            Aires, AR</p>
+          <p>Más de 6 años construyendo integraciones y sistemas para empresas de distintos países e industrias —
+            incluyendo proyectos de integración para retailers Internacionales, donde un error de datos cuesta plata de
+            verdad y los sistemas no pueden fallar.</p>
+          <p>Aprendí cómo funcionan los negocios por dentro: las ineficiencias, los procesos rotos, lo que se pierde
+            entre planillas y WhatsApps. Hoy llevo esa ingeniería a empresas que necesitan que sus sistemas funcionen
+            solos.</p>
+          <p><strong>Lo que me diferencia no es la herramienta — es que construyo las cosas para que no se
+              rompan.</strong></p>
 
           <div class="about-socials">
             <a href="https://www.instagram.com/char.developer" class="about-social-btn" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
               </svg>
               Instagram
             </a>
             <a href="https://www.youtube.com/@char.aranda" class="about-social-btn" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path
                   d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="currentColor" stroke="none" />
               </svg>
               YouTube
             </a>
-            <a href="https://www.linkedin.com/in/arandacarlosdamian/" class="about-social-btn about-social-btn--li"
-              target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <a href="https://www.linkedin.com/in/arandacarlosdamian/" class="about-social-btn" target="_blank"
+              rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
               </svg>
@@ -577,33 +707,28 @@
           </div>
           <div class="badges">
             <div class="badge">Oracle OIC Certified</div>
-            <div class="badge">6 años en tech</div>
-            <div class="badge">5 proyectos en producción</div>
+            <div class="badge">PL/SQL Certified</div>
+            <div class="badge">6+ años en sistemas enterprise</div>
+            <div class="badge">5+ proyectos en producción</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="sep"></div>
-
   <!-- ── TESTIMONIOS ── -->
-  <section id="testimonios">
+  <section class="test-section">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <span class="tag">// 05 — Testimonios</span>
-        <h2 style="margin-top:.75rem">Lo que dicen</h2>
-      </div>
+      <span class="sec-label rv">Testimonios</span>
+      <h2 class="rv">Experiencia enterprise</h2>
+      <p class="sec-subtitle rv d1">Trabajo y trabajé con equipos de ingeniería de empresas internacionales. Esto dicen
+        las personas con las que construí sistemas.</p>
       <div class="test-grid">
-
         <div class="test-card rv">
-          <div class="test-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span>
-          </div>
+          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span></div>
           <p class="test-quote">Carlos se integró al equipo muy rápido y desde el primer momento demostró buena actitud
-            y ganas de aprender. Es una persona comprometida, responsable y muy fácil para trabajar. Se desplegó
-            rápidamente en las herramientas y siempre estuvo dispuesto a dar una mano donde hiciera falta.</p>
+            y ganas de aprender. Es una persona comprometida, responsable y muy fácil para trabajar.</p>
           <div class="test-author">
             <div class="test-avatar">NE</div>
             <div>
@@ -612,94 +737,79 @@
             </div>
           </div>
         </div>
-
         <div class="test-card rv d1">
-          <div class="test-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span>
-          </div>
+          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span></div>
           <p class="test-quote">Trabajé con Carlos en proyectos de OIC y puedo decir que es una persona con mucha
-            capacidad de aprendizaje y muy buena predisposición. Siempre con ganas de entender el fondo de las cosas, no
-            solo ejecutar. Un gusto haberlo tenido en el equipo.</p>
+            capacidad de aprendizaje y muy buena predisposición. Siempre con ganas de entender el fondo de las cosas.
+          </p>
           <div class="test-author">
-            <div class="test-avatar" style="background:linear-gradient(135deg,var(--m),var(--o))">PV</div>
+            <div class="test-avatar">PV</div>
             <div>
               <div class="test-name">Pablo V.</div>
               <div class="test-role">OIC Specialist · Oracle</div>
             </div>
           </div>
         </div>
-
         <div class="test-card rv d2">
-          <div class="test-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span>
-          </div>
+          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span></div>
           <p class="test-quote">Contraté a Carlos para un rol de desarrollo después de un tiempo que no tocaba código y
-            aposté por él. No me equivoqué. Se adaptó rápido a un entorno exigente, con equipos distribuidos y poco
-            margen para el error. Gran profesional y mejor persona.</p>
+            aposté por él. No me equivoqué. Se adaptó rápido a un entorno exigente. Gran profesional.</p>
           <div class="test-author">
-            <div class="test-avatar" style="background:linear-gradient(135deg,#44d4ff,var(--c))">JO</div>
+            <div class="test-avatar">JO</div>
             <div>
               <div class="test-name">Jonathan O.</div>
               <div class="test-role">Engineering Manager · Zinier</div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ── CONTACTO ── -->
-  <section id="contacto">
-    <div class="contact-bg">
-      <div class="hgrid" style="opacity:.4"></div>
-      <div class="sl"></div>
-      <div class="blob1" style="opacity:.5"></div>
-    </div>
-    <div class="wrap contact-inner">
-      <div class="sec-hd rv" style="text-align:center">
-        <span class="tag">// 06 — Contacto</span>
-        <h2 style="margin-top:.75rem">¿Empezamos?</h2>
-      </div>
-      <div class="contact-wrap rv">
-        <div class="contact-form-box ccard">
-          <h3>¿Tenés dudas o no sabés bien qué necesitás?</h3>
-          <p style="margin-bottom: 2rem;">Escribime con confianza. Contame un poco sobre tu negocio o qué te gustaría
-            resolver, y te respondo por mail para darte una mano sin ningún compromiso.</p>
-
-          <form class="cform" id="contactForm">
-            <!-- Web3Forms Config -->
-            <input type="hidden" name="access_key" value="6b1c3d16-a56e-4ca8-bf99-e561f0416803">
-            <input type="hidden" name="subject" value="Nuevo Lead desde tu Web - Char.Developer">
-            <input type="hidden" name="from_name" value="Char.Developer Web">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Tu Nombre</label>
-                <input type="text" id="name" name="name" required placeholder="Ej: Carlos Aranda">
+  <section id="contacto" class="contact-section">
+    <div class="wrap">
+      <div class="contact-inner">
+        <span class="sec-label rv">Contacto</span>
+        <h2 class="rv">¿Empezamos?</h2>
+        <div class="contact-cards">
+          <div class="contact-card rv">
+            <h3>¿No sabés bien qué necesitás?</h3>
+            <p>Contame cómo opera tu negocio y dónde se pierde tiempo. Te respondo con un diagnóstico honesto.</p>
+            <form class="cform" id="contactForm">
+              <input type="hidden" name="access_key" value="6b1c3d16-a56e-4ca8-bf99-e561f0416803">
+              <input type="hidden" name="subject" value="Nuevo Lead desde tu Web - Char.Developer">
+              <input type="hidden" name="from_name" value="Char.Developer Web">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Tu Nombre</label>
+                  <input type="text" id="name" name="name" required placeholder="Ej: Carlos Aranda">
+                </div>
+                <div class="form-group">
+                  <label for="email">Tu Email</label>
+                  <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                </div>
               </div>
               <div class="form-group">
-                <label for="email">Tu Email</label>
-                <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                <label for="message">¿En qué te puedo ayudar?</label>
+                <textarea id="message" name="message" rows="3" required
+                  placeholder="Contame un poco de tu caso..."></textarea>
               </div>
+              <button type="submit" class="btn btn-primary"
+                style="width:100%; justify-content:center; margin-top:0.5rem;">Enviar consulta →</button>
+            </form>
+          </div>
+          <div class="contact-card rv d1">
+            <h3>¿Preferís ir al grano?</h3>
+            <p>Mandame un mensaje por WhatsApp o agendá directamente una llamada de 15 minutos.</p>
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+              <a href="https://wa.me/5491173644722" class="btn btn-dark" target="_blank" rel="noopener"
+                style="justify-content:center;">Abrir WhatsApp →</a>
+              <a href="https://cal.com/char.developer/15min" class="btn btn-outline" target="_blank" rel="noopener"
+                style="justify-content:center;">Agendar llamada →</a>
             </div>
-            <div class="form-group">
-              <label for="message">¿En qué te puedo ayudar?</label>
-              <textarea id="message" name="message" rows="4" required
-                placeholder="Contame un poco de tu caso..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-c btn-submit"
-              style="width: 100%; justify-content: center; margin-top: 1rem;">Enviar consulta →</button>
-          </form>
-
-        </div>
-
-        <div class="contact-alt">
-          <div class="ccard">
-            <h3>¿Preferís algo más directo?</h3>
-            <p>Si querés una respuesta más rápida o ya estás listo para charlar, mandame un mensaje directo.</p>
-            <a href="https://wa.me/5491173644722" class="btn btn-m" target="_blank" rel="noopener">Abrir WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -711,14 +821,14 @@
     <div class="foot-i">
       <div>
         <div class="foot-logo">Char<span>.</span>Developer</div>
-        <div class="foot-sub">Sistemas, automatizaciones e IA para pymes &middot; Buenos Aires, Argentina</div>
+        <div class="foot-sub">Sistemas, automatizaciones e IA para empresas · Buenos Aires, Argentina</div>
       </div>
-      <div class="foot-soc" style="margin-top:.75rem">
+      <div class="foot-soc">
         <a href="https://www.linkedin.com/in/arandacarlosdamian/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/char.developer/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@char.developer" target="_blank" rel="noopener">TikTok</a>
       </div>
-      <div class="foot-copy">Char.Developer © 2026 — Hecho con IA y mate en Argentina 🇦🇷</div>
+      <div class="foot-copy">Char.Developer © 2026 — Buenos Aires, AR 🇦🇷</div>
     </div>
   </footer>
 
