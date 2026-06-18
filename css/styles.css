@@ -424,6 +424,7 @@ nav.stuck {
 .stack-section {
   padding: 6rem 0;
   background: var(--bg);
+  overflow: hidden;
 }
 
 .stack-layout {
@@ -431,11 +432,16 @@ nav.stuck {
   grid-template-columns: 340px 1fr;
   gap: 3rem;
   align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .stack-left {
   position: sticky;
   top: 120px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .stack-tabs {
@@ -507,6 +513,10 @@ nav.stuck {
   height: 520px;
   position: relative;
   box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .stack-preview-item {
@@ -675,11 +685,13 @@ nav.stuck {
 
 .mock-table {
   width: 100%;
+  max-width: 100%;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
 }
 
 .mock-table-header {
@@ -734,16 +746,21 @@ nav.stuck {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .integration-box {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1rem;
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s;
+  min-width: 80px;
+  flex-shrink: 1;
 }
 
 .integration-box:hover {
@@ -771,9 +788,10 @@ nav.stuck {
   background: var(--accent);
   color: #fff;
   border-radius: var(--radius-lg);
-  padding: 1.25rem 2rem;
+  padding: 1rem 1.25rem;
   text-align: center;
   box-shadow: 0 4px 16px rgba(108,71,255,0.3);
+  flex-shrink: 1;
 }
 
 .integration-center strong {
@@ -1607,10 +1625,21 @@ footer {
   .stack-tabs {
     flex-direction: row;
     overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* Ocultar scrollbar visualmente pero mantener funcionalidad */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .stack-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .stack-tab {
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .stack-preview { min-height: 350px; }
