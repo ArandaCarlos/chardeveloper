@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo MercadoPago - char.developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0b;
+      color: #f4f4f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 480px;
+      width: 100%;
+    }
+    .header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .header p {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #27272a;
+      margin-bottom: 1.5rem;
+    }
+    .product-info .name {
+      font-weight: 500;
+    }
+    .product-info .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #22d3ee;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #27272a;
+      border: 1px solid #3f3f46;
+      border-radius: 8px;
+      color: #f4f4f5;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #22d3ee;
+    }
+    .row {
+      display: flex;
+      gap: 1rem;
+    }
+    .row .form-group {
+      flex: 1;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.85rem;
+      background: #22d3ee;
+      color: #0a0a0b;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+      display: none;
+    }
+    .result.success {
+      background: #052e16;
+      border: 1px solid #166534;
+      color: #86efac;
+      display: block;
+    }
+    .result.error {
+      background: #450a0a;
+      border: 1px solid #991b1b;
+      color: #fca5a5;
+      display: block;
+    }
+    .result.info {
+      background: #0c1a2e;
+      border: 1px solid #1e3a5f;
+      color: #93c5fd;
+      display: block;
+    }
+    .steps {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #1a1a2e;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .steps .step {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .steps .step.done { color: #86efac; }
+    .steps .step.active { color: #22d3ee; }
+    .steps .step.pending { color: #52525b; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: #27272a;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Demo Checkout API — MercadoPago</h1>
+      <p>char.developer · Integrando Sistemas</p>
+    </div>
+    
+    <div class="card">
+      <div class="product-info">
+        <span class="name">Servicio de integración</span>
+        <span class="price">$50.000</span>
+      </div>
+      
+      <div id="form-section">
+        <div class="form-group">
+          <label>Número de tarjeta</label>
+          <input type="text" id="cardNumber" placeholder="4509 9535 6623 3704" maxlength="19">
+        </div>
+        
+        <div class="row">
+          <div class="form-group">
+            <label>Vencimiento</label>
+            <input type="text" id="expiration" placeholder="12/28" maxlength="5">
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="text" id="cvv" placeholder="123" maxlength="4">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Nombre en la tarjeta</label>
+          <input type="text" id="cardholderName" placeholder="APRO" value="APRO">
+        </div>
+        
+        <div class="row">
+          <div class="form-group">
+            <label>Tipo Doc</label>
+            <select id="docType">
+              <option value="DNI">DNI</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número Doc</label>
+            <input type="text" id="docNumber" placeholder="12345678" value="12345678">
+          </div>
+        </div>
+        
+        <button class="btn" id="payBtn" onclick="processPayment()">
+          Pagar $50.000
+        </button>
+      </div>
+      
+      <div class="steps" id="steps" style="display:none;">
+        <div class="step" id="step1"><span>○</span> Tokenizando tarjeta...</div>
+        <div class="step" id="step2"><span>○</span> Enviando pago a MercadoPago...</div>
+        <div class="step" id="step3"><span>○</span> Procesando...</div>
+      </div>
+      
+      <div class="result" id="result"></div>
+      
+      <div class="badge">
+        Modo testing · Ningún cobro real · Credenciales de prueba
+      </div>
+    </div>
+  </div>
+
+  <!-- SDK de MercadoPago -->
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  
+  <script>
+    // ============================================
+    // CONFIGURACIÓN — Reemplazá con tus credenciales de PRUEBA
+    // ============================================
+    const PUBLIC_KEY = 'APP_USR-3e616600-bac0-4203-8e46-f2e6afe43734'    // ← Public Key de prueba
+    const ACCESS_TOKEN = 'APP_USR-1769666669624288-062518-083ada669dc3350174c24d86cbc01a01-1931871660' // ← Access Token de prueba
+    // ============================================
+
+    const mp = new MercadoPago(PUBLIC_KEY)
+
+    async function processPayment() {
+      const btn = document.getElementById('payBtn')
+      const result = document.getElementById('result')
+      const steps = document.getElementById('steps')
+      
+      btn.disabled = true
+      btn.textContent = 'Procesando...'
+      steps.style.display = 'block'
+      result.className = 'result'
+      result.style.display = 'none'
+      
+      try {
+        // ─── PASO 1: Tokenizar la tarjeta ───
+        updateStep(1, 'active')
+        
+        const expParts = document.getElementById('expiration').value.split('/')
+        
+        const cardToken = await mp.createCardToken({
+          cardNumber: document.getElementById('cardNumber').value.replace(/\s/g, ''),
+          cardholderName: document.getElementById('cardholderName').value,
+          cardExpirationMonth: expParts[0],
+          cardExpirationYear: '20' + expParts[1],
+          securityCode: document.getElementById('cvv').value,
+          identificationType: document.getElementById('docType').value,
+          identificationNumber: document.getElementById('docNumber').value
+        })
+        
+        updateStep(1, 'done')
+        
+        // Mostrar el token generado (útil para el video)
+        showInfo(`Token generado: ${cardToken.id}\n\nEste token es lo que viaja a tu backend.\nLos datos de la tarjeta NUNCA tocan tu servidor.`)
+        
+        // Esperar 2 segundos para que se vea el token en el video
+        await new Promise(r => setTimeout(r, 2000))
+        
+        // ─── PASO 2: Procesar el pago ───
+        updateStep(2, 'active')
+        
+        const paymentResponse = await fetch('https://api.mercadopago.com/v1/payments', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${ACCESS_TOKEN}`,
+            'Content-Type': 'application/json',
+            'X-Idempotency-Key': `demo-${Date.now()}`
+          },
+          body: JSON.stringify({
+            transaction_amount: 50000,
+            token: cardToken.id,
+            description: 'Servicio de integración - char.developer',
+            installments: 1,
+            payment_method_id: 'visa',
+            payer: {
+              email: 'test_user_demo@testuser.com',
+              identification: {
+                type: 'DNI',
+                number: '12345678'
+              }
+            }
+          })
+        })
+        
+        updateStep(2, 'done')
+        
+        // ─── PASO 3: Resultado ───
+        updateStep(3, 'active')
+        const payment = await paymentResponse.json()
+        updateStep(3, 'done')
+        
+        if (payment.status === 'approved') {
+          showSuccess(
+            `✅ PAGO APROBADO\n\n` +
+            `ID: ${payment.id}\n` +
+            `Estado: ${payment.status}\n` +
+            `Detalle: ${payment.status_detail}\n` +
+            `Monto: $${payment.transaction_amount}\n` +
+            `Método: ${payment.payment_method_id}\n` +
+            `Cuotas: ${payment.installments}\n` +
+            `Fecha: ${new Date(payment.date_approved).toLocaleString('es-AR')}`
+          )
+        } else if (payment.status === 'rejected') {
+          showError(
+            `❌ PAGO RECHAZADO\n\n` +
+            `Estado: ${payment.status}\n` +
+            `Detalle: ${payment.status_detail}\n` +
+            `Motivo: ${getRejectReason(payment.status_detail)}`
+          )
+        } else {
+          showInfo(
+            `⏳ PAGO PENDIENTE\n\n` +
+            `Estado: ${payment.status}\n` +
+            `Detalle: ${payment.status_detail}\n\n` +
+            JSON.stringify(payment, null, 2).slice(0, 500)
+          )
+        }
+        
+      } catch (error) {
+        showError(`Error: ${error.message}\n\n${JSON.stringify(error, null, 2)}`)
+      }
+      
+      btn.disabled = false
+      btn.textContent = 'Pagar $50.000'
+    }
+    
+    function updateStep(num, status) {
+      const step = document.getElementById(`step${num}`)
+      step.className = `step ${status}`
+      const icon = status === 'done' ? '✓' : status === 'active' ? '→' : '○'
+      step.innerHTML = `<span>${icon}</span> ${step.textContent.replace(/^[○✓→]\s*/, '')}`
+    }
+    
+    function showSuccess(msg) {
+      const r = document.getElementById('result')
+      r.className = 'result success'
+      r.textContent = msg
+    }
+    
+    function showError(msg) {
+      const r = document.getElementById('result')
+      r.className = 'result error'
+      r.textContent = msg
+    }
+    
+    function showInfo(msg) {
+      const r = document.getElementById('result')
+      r.className = 'result info'
+      r.textContent = msg
+    }
+    
+    function getRejectReason(detail) {
+      const reasons = {
+        'cc_rejected_insufficient_amount': 'Fondos insuficientes',
+        'cc_rejected_bad_filled_card_number': 'Número de tarjeta incorrecto',
+        'cc_rejected_bad_filled_security_code': 'CVV incorrecto',
+        'cc_rejected_bad_filled_date': 'Fecha de vencimiento incorrecta',
+        'cc_rejected_high_risk': 'Rechazado por seguridad',
+        'cc_rejected_other_reason': 'Rechazado por el banco'
+      }
+      return reasons[detail] || detail
+    }
+    
+    // Formateo automático del número de tarjeta
+    document.getElementById('cardNumber').addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\s/g, '').replace(/\D/g, '')
+      val = val.match(/.{1,4}/g)?.join(' ') || val
+      e.target.value = val
+    })
+    
+    // Formateo automático del vencimiento
+    document.getElementById('expiration').addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\D/g, '')
+      if (val.length >= 2) val = val.slice(0, 2) + '/' + val.slice(2)
+      e.target.value = val
+    })
+  </script>
+</body>
+</html>
