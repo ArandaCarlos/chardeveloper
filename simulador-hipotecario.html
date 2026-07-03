@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulá tu crédito hipotecario UVA. Calculá cuánto te costará en el tiempo, el impacto de adelantos y la relación cuota/ingreso. Herramienta gratuita de char.developer.">
+  <title>Simulador Crédito Hipotecario UVA · char.developer</title>
+
+  <meta property="og:title" content="Simulador Crédito Hipotecario UVA · char.developer">
+  <meta property="og:description" content="Calculá tu crédito hipotecario UVA fácilmente. Sistema francés, proyección de inflación y análisis de adelantos.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* == DESIGN SYSTEM — char.developer == */
+    :root {
+      --bg:          #0F0F11;
+      --surface:     #17171A;
+      --surface-alt: #1C1C21;
+      --border:      rgba(255,255,255,0.08);
+      --border-soft: rgba(255,255,255,0.04);
+
+      --accent:      #6C47FF;
+      --accent-h:    #5835DB;
+      --accent-soft: rgba(108,71,255,0.10);
+      --accent-glow: rgba(108,71,255,0.25);
+
+      --green:       #22c55e;
+      --green-soft:  rgba(34,197,94,0.10);
+      --red:         #ef4444;
+      --red-soft:    rgba(239,68,68,0.10);
+      --amber:       #f59e0b;
+      --amber-soft:  rgba(245,158,11,0.10);
+
+      --text:        #F9FAFB;
+      --t2:          #9CA3AF;
+      --t3:          #6B7280;
+      --t4:          #4B5563;
+
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* == NAV == */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,17,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent) 0%, #9b6dff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t2);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo-text span { color: var(--accent); }
+    .nav-back {
+      font-size: 12px;
+      color: var(--t3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--t2); }
+
+    /* == LAYOUT == */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 28px 1rem 60px;
+    }
+
+    /* == HEADER == */
+    .header { margin-bottom: 24px; }
+    .header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-soft);
+      border: 1px solid rgba(108,71,255,0.2);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .header-pill::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .header h1 {
+      font-size: clamp(1.4rem, 4vw, 1.85rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .header-sub {
+      font-size: 13px;
+      color: var(--t3);
+      margin-top: 6px;
+    }
+
+    /* == BOX == */
+    .box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .box--green  { border-color: rgba(34,197,94,0.25); }
+    .box--accent { border-color: rgba(108,71,255,0.25); }
+
+    /* == SECTION LABEL == */
+    .sec-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--t4);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* == INPUTS == */
+    .input-group { margin-bottom: 18px; }
+    .input-group:last-child { margin-bottom: 0; }
+    .input-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .input-label { color: var(--t2); font-weight: 500; }
+    .input-value {
+      color: var(--accent);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .input-value .extra {
+      color: var(--t4);
+      font-weight: 400;
+      font-size: 11px;
+    }
+    input[type=range] {
+      width: 100%;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--surface-alt);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    input[type=range]:hover::-webkit-slider-thumb,
+    input[type=range]:focus::-webkit-slider-thumb {
+      box-shadow: 0 0 0 5px var(--accent-glow);
+      transform: scale(1.1);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border-soft);
+      margin: 16px 0;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* == KPI == */
+    .kpi-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .kpi { flex: 1; min-width: 90px; text-align: center; }
+    .kpi-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--t3);
+      margin-bottom: 4px;
+    }
+    .kpi-value {
+      font-size: 22px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    .kpi-value.sm { font-size: 17px; }
+    .kpi-sub { font-size: 11px; color: var(--t4); margin-top: 2px; }
+
+    /* == BAR == */
+    .bar-wrap { margin-top: 16px; }
+    .bar-track {
+      display: flex;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--surface-alt);
+    }
+    .bar-cap { background: var(--green); transition: width 0.4s ease; }
+    .bar-int { background: var(--red); flex: 1; }
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--t3);
+      margin-top: 5px;
+    }
+
+    /* == TABS == */
+    .tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+    .tab-btn {
+      flex: 1;
+      padding: 9px 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--t3);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--t2); border-color: rgba(255,255,255,0.14); }
+    .tab-btn.active {
+      background: var(--accent-soft);
+      border-color: rgba(108,71,255,0.35);
+      color: var(--accent);
+    }
+
+    /* == TABLE == */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+    th {
+      text-align: right;
+      padding: 7px 6px;
+      color: var(--t4);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    td {
+      padding: 6px;
+      text-align: right;
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--text);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface-alt); }
+    .td-year { color: var(--t3); }
+    .td-ok { color: var(--green); font-weight: 700; }
+
+    /* == ALERT == */
+    .alert {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .alert:last-child { margin-bottom: 0; }
+    .alert-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .alert-body { color: var(--t2); white-space: pre-line; }
+
+    /* == TOGGLE BTN == */
+    .toggle-btn {
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.2s;
+    }
+    .toggle-btn:hover { background: var(--accent-soft); }
+
+    /* == PROSE == */
+    .prose { font-size: 13px; color: var(--t2); line-height: 1.75; }
+    .prose p { margin-bottom: 12px; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { color: var(--text); }
+    .prose small { color: var(--t3); font-size: 11px; }
+
+    .example-box {
+      background: var(--surface-alt);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    .ex-title { font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .ex-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      color: var(--t2);
+    }
+
+    /* == FOOTER == */
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--t4);
+      line-height: 1.7;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .footer a { color: var(--accent); transition: opacity 0.2s; }
+    .footer a:hover { opacity: 0.75; }
+
+    /* == RESPONSIVE == */
+    @media (max-width: 480px) {
+      .grid-2 { grid-template-columns: 1fr; gap: 0; }
+      .kpi-value { font-size: 18px; }
+    }
+
+    /* == ANIMATIONS == */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page { animation: fadeUp 0.35s ease; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">c</div>
+        <span class="nav-logo-text">char<span>.</span>developer</span>
+      </a>
+      <a href="index.html" class="nav-back">← Volver al sitio</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-pill">Herramienta gratuita</div>
+      <h1>Simulador Crédito Hipotecario UVA</h1>
+      <p class="header-sub" id="headerSub">Sistema francés · Datos orientativos</p>
+    </div>
+
+    <!-- PARAMS -->
+    <div class="box">
+      <div class="input-group">
+        <div class="input-header">
+          <span class="input-label">Capital prestado (UVAs)</span>
+          <span class="input-value" id="capVal">—</span>
+        </div>
+        <input type="range" id="cap" min="5000" max="189000" step="500" value="34500">
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span class="input-label">Tasa nominal anual (TNA)</span>
+          <span class="input-value" id="tnaVal">—</span>
+        </div>
+        <input type="range" id="tna" min="4" max="14" step="0.5" value="6">
+      </div>
+
+      <div class="grid-2">
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Plazo</span>
+            <span class="input-value" id="plazVal">—</span>
+          </div>
+          <input type="range" id="plaz" min="5" max="30" step="5" value="20">
+        </div>
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Ingreso mensual</span>
+            <span class="input-value" id="incVal">—</span>
+          </div>
+          <input type="range" id="inc" min="500000" max="20000000" step="100000" value="4000000">
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="input-group">
+        <div class="input-header">
+          <span class="input-label">Adelanto extra mensual (UVAs)</span>
+          <span class="input-value" id="extVal">—</span>
+        </div>
+        <input type="range" id="ext" min="0" max="600" step="10" value="0">
+      </div>
+
+      <hr class="divider">
+      <span class="sec-label">Inflación proyectada</span>
+
+      <div class="grid-2">
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Primer año</span>
+            <span class="input-value" id="inf1Val">—</span>
+          </div>
+          <input type="range" id="inf1" min="5" max="60" step="1" value="30">
+        </div>
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Largo plazo</span>
+            <span class="input-value" id="inftVal">—</span>
+          </div>
+          <input type="range" id="inft" min="2" max="30" step="1" value="15">
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="box">
+      <div class="kpi-row" id="kpiRow"></div>
+      <div class="bar-wrap">
+        <div class="bar-track">
+          <div class="bar-cap" id="barCap"></div>
+          <div class="bar-int"></div>
+        </div>
+        <div class="bar-labels">
+          <span id="barCapLbl"></span>
+          <span id="barIntLbl"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREPAYMENT BOX -->
+    <div class="box box--green" id="prepayBox" style="display:none">
+      <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:14px;" id="prepayTitle"></div>
+      <div class="kpi-row" id="prepayRow"></div>
+      <div id="comisionAlert" style="margin-top:12px;display:none;"></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="setTab(0)">Resumen</button>
+      <button class="tab-btn" onclick="setTab(1)">Tabla</button>
+      <button class="tab-btn" onclick="setTab(2)">Reglas</button>
+    </div>
+
+    <!-- TAB 0: RESUMEN -->
+    <div class="box" id="tab0">
+      <div style="font-size:14px;font-weight:700;color:var(--t2);margin-bottom:14px;">Como interpretar la cuota en el futuro?</div>
+      <div class="prose">
+        <p>La cuota del prestamo UVA siempre es la misma cantidad de UVAs. Lo que cambia es cuantos pesos vale cada UVA, siguiendo la inflacion.</p>
+        <div class="example-box" id="example10"></div>
+        <p>Si la inflacion converge a largo plazo, es el <strong>mejor escenario</strong>: la cuota en pesos sube poco, el capital crece despacio, y cada peso que adelantas tiene mas impacto.</p>
+        <p><small>El riesgo real: que la inflacion suba mucho mas rapido que tu ingreso. Pero ese riesgo lo tendrias igual pagando alquiler.</small></p>
+      </div>
+    </div>
+
+    <!-- TAB 1: TABLA -->
+    <div class="box" id="tab1" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <span style="font-size:13px;font-weight:700;color:var(--t2);" id="tableTitle">Ano a ano</span>
+        <button class="toggle-btn" id="toggleView" onclick="toggleView()">Ver nominal</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div style="font-size:11px;color:var(--t4);margin-top:10px;line-height:1.6;" id="tableNote"></div>
+    </div>
+
+    <!-- TAB 2: REGLAS -->
+    <div class="box" id="tab2" style="display:none">
+      <div style="font-size:14px;font-weight:700;color:var(--t2);margin-bottom:14px;">Cancelacion anticipada — Banco Nacion</div>
+      <div id="rulesContent"></div>
+      <div class="alert" style="background:var(--accent-soft);border:1px solid rgba(108,71,255,0.25);margin-top:14px;" id="estrategia"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Herramienta orientativa. No constituye asesoramiento financiero.<br>
+      Inflacion proyectada basada en REM BCRA (mayo 2026).<br>
+      Hecho por <a href="https://chardeveloper.com.ar" target="_blank" rel="noopener">char.developer</a>
+    </div>
+
+  </div>
+
+  <script>
+    const UVA_HOY  = 2021.05;
+    const UVA_DATE = "3 jul 2026";
+    let viewReal = true;
+
+    function fmt(n) {
+      const a = Math.abs(n);
+      if (a >= 1e9) return '$' + (n/1e9).toFixed(1) + 'B';
+      if (a >= 1e6) return '$' + (n/1e6).toFixed(1) + 'M';
+      if (a >= 1e3) return '$' + (n/1e3).toFixed(0) + 'k';
+      return '$' + n.toFixed(0);
+    }
+    function fmtN(n) { return n.toLocaleString('es-AR', {maximumFractionDigits: 0}); }
+    function fmtPct(n) { return n.toFixed(0) + '%'; }
+
+    function frenchPayment(P, r, n) {
+      if (r === 0) return P / n;
+      const f = Math.pow(1 + r, n);
+      return (P * r * f) / (f - 1);
+    }
+
+    function buildInflPath(inf1, inft) {
+      const p = [];
+      for (let y = 0; y < 30; y++) p.push(y < 5 ? inf1 - (inf1 - inft) * y / 5 : inft);
+      return p;
+    }
+
+    function simulate(cap, tna, years, extra, inflPath) {
+      const r = tna / 100 / 12;
+      const N = years * 12;
+      const pmt = frenchPayment(cap, r, N);
+      let bal = cap, totI = 0, totP = 0, uva = UVA_HOY;
+      const rows = [];
+      for (let m = 1; m <= N && bal > 0.01; m++) {
+        const interest = bal * r;
+        let capPay = Math.min(pmt - interest, bal);
+        let ext = Math.min(extra, bal - capPay);
+        bal -= capPay + ext;
+        totI += interest; totP += pmt + ext;
+        const yi = Math.floor((m - 1) / 12);
+        const ai = yi < inflPath.length ? inflPath[yi] : inflPath[inflPath.length - 1];
+        uva *= Math.pow(1 + ai / 100, 1 / 12);
+        rows.push({ m, bal, interest, capPay, ext, pay: pmt + ext, pesos: (pmt + ext) * uva, uva });
+        if (bal <= 0.01) break;
+      }
+      return { rows, totI, totP, pmt, months: rows.length, years: Math.ceil(rows.length / 12) };
+    }
+
+    function yearlyAgg(sim, income) {
+      const d = [];
+      for (let y = 1; y <= sim.years; y++) {
+        const ms = sim.rows.filter(r => Math.ceil(r.m / 12) === y);
+        if (!ms.length) break;
+        const last = ms[ms.length - 1];
+        const avgPesos = ms.reduce((s, m) => s + m.pesos, 0) / ms.length;
+        const avgReal  = avgPesos / (last.uva / UVA_HOY);
+        const incomeY  = income * (last.uva / UVA_HOY);
+        d.push({ y, bal: last.bal, uva: last.uva, avgPesos, avgReal, ratioN: avgPesos / incomeY * 100 });
+      }
+      return d;
+    }
+
+    function getVals() {
+      return {
+        cap:  +document.getElementById('cap').value,
+        tna:  +document.getElementById('tna').value,
+        plaz: +document.getElementById('plaz').value,
+        extra:+document.getElementById('ext').value,
+        inc:  +document.getElementById('inc').value,
+        inf1: +document.getElementById('inf1').value,
+        inft: +document.getElementById('inft').value,
+      };
+    }
+
+    function render() {
+      const v = getVals();
+      const { cap, tna, plaz, extra, inc, inf1, inft } = v;
+      const inflPath = buildInflPath(inf1, inft);
+      const base  = simulate(cap, tna, plaz, 0, inflPath);
+      const accel = simulate(cap, tna, plaz, extra, inflPath);
+      const sim   = extra > 0 ? accel : base;
+
+      const cuotaHoy = base.pmt * UVA_HOY;
+      const ratio = cuotaHoy / inc * 100;
+      const saved = base.totI - accel.totI;
+      const savedM = base.months - accel.months;
+      const comisionYears = Math.ceil(plaz / 4);
+
+      // Header sub
+      document.getElementById('headerSub').textContent =
+        'Sistema frances  UVA $' + fmtN(UVA_HOY) + ' (' + UVA_DATE + ')  Datos orientativos';
+
+      // Labels
+      document.getElementById('capVal').innerHTML  =
+        fmtN(cap) + ' <span class="extra">aprox. ' + fmt(cap * UVA_HOY) + '</span>';
+      document.getElementById('tnaVal').textContent = tna + '%';
+      document.getElementById('plazVal').textContent = plaz + ' anos';
+      document.getElementById('extVal').innerHTML   = extra > 0
+        ? fmtN(extra) + ' <span class="extra">aprox. ' + fmt(extra * UVA_HOY) + '/mes</span>'
+        : '0 UVAs';
+      document.getElementById('incVal').textContent  = fmt(inc);
+      document.getElementById('inf1Val').textContent = inf1 + '% anual';
+      document.getElementById('inftVal').textContent = inft + '% anual';
+
+      // KPIs
+      const ratioColor = ratio > 30 ? 'var(--amber)' : 'var(--green)';
+      document.getElementById('kpiRow').innerHTML =
+        '<div class="kpi">' +
+          '<div class="kpi-label">Cuota inicial</div>' +
+          '<div class="kpi-value" style="color:var(--accent)">' + fmt(cuotaHoy) + '</div>' +
+          '<div class="kpi-sub">' + Math.round(base.pmt) + ' UVAs/mes</div>' +
+        '</div>' +
+        '<div class="kpi">' +
+          '<div class="kpi-label">Cuota / Ingreso</div>' +
+          '<div class="kpi-value" style="color:' + ratioColor + '">' + fmtPct(ratio) + '</div>' +
+          '<div class="kpi-sub" style="color:' + ratioColor + '">' + (ratio > 30 ? 'Alta' : 'OK') + '</div>' +
+        '</div>' +
+        '<div class="kpi">' +
+          '<div class="kpi-label">Interes total</div>' +
+          '<div class="kpi-value" style="color:var(--red)">' + fmtN(Math.round(base.totI)) + '</div>' +
+          '<div class="kpi-sub">UVAs aprox. ' + fmt(base.totI * UVA_HOY) + '</div>' +
+        '</div>';
+
+      // Bar
+      const capPct = (cap / base.totP * 100).toFixed(0);
+      const intPct = (base.totI / base.totP * 100).toFixed(0);
+      document.getElementById('barCap').style.width = capPct + '%';
+      document.getElementById('barCapLbl').textContent = 'Capital: ' + capPct + '%';
+      document.getElementById('barIntLbl').textContent = 'Intereses: ' + intPct + '%';
+
+      // Prepay
+      const prepayBox = document.getElementById('prepayBox');
+      if (extra > 0) {
+        prepayBox.style.display = 'block';
+        document.getElementById('prepayTitle').textContent =
+          'Impacto de adelantar +' + fmtN(extra) + ' UVAs/mes (' + fmt(extra * UVA_HOY) + ')';
+        const totalRatio = (base.pmt + extra) * UVA_HOY / inc * 100;
+        const totalColor = totalRatio > 40 ? 'var(--amber)' : 'var(--text)';
+        document.getElementById('prepayRow').innerHTML =
+          '<div class="kpi">' +
+            '<div class="kpi-label">Interes ahorrado</div>' +
+            '<div class="kpi-value sm" style="color:var(--green)">' + fmtN(Math.round(saved)) + '</div>' +
+            '<div class="kpi-sub">UVAs aprox. ' + fmt(saved * UVA_HOY) + '</div>' +
+          '</div>' +
+          '<div class="kpi">' +
+            '<div class="kpi-label">Tiempo ahorrado</div>' +
+            '<div class="kpi-value sm" style="color:var(--green)">' +
+              (savedM >= 12 ? Math.floor(savedM/12) + 'a ' + (savedM%12) + 'm' : savedM + 'm') +
+            '</div>' +
+            '<div class="kpi-sub">Terminas en ~' + accel.years + ' anos</div>' +
+          '</div>' +
+          '<div class="kpi">' +
+            '<div class="kpi-label">Pago total</div>' +
+            '<div class="kpi-value sm" style="color:' + totalColor + '">' + fmt((base.pmt + extra) * UVA_HOY) + '</div>' +
+            '<div class="kpi-sub">' + fmtPct(totalRatio) + ' ingreso</div>' +
+          '</div>';
+
+        const comisionAlert = document.getElementById('comisionAlert');
+        if (comisionYears > 0) {
+          comisionAlert.style.display = 'block';
+          comisionAlert.innerHTML =
+            '<div class="alert" style="background:var(--amber-soft);border:1px solid rgba(245,158,11,0.25)">' +
+              '<span style="color:var(--amber)">Primeros ' + comisionYears + ' anos: comision 4%+IVA por adelanto. ' +
+              'Despues: gratis. Costo ano 1: aprox. ' + fmt(extra * 12 * 0.0484 * UVA_HOY) + '</span>' +
+            '</div>';
+        } else {
+          comisionAlert.style.display = 'none';
+        }
+      } else {
+        prepayBox.style.display = 'none';
+      }
+
+      // Tab Resumen
+      const yearly = yearlyAgg(sim, inc);
+      const y10 = yearly.find(y => y.y === 10);
+      let ex10 = '';
+      if (!y10) {
+        ex10 = '<div class="kpi-sub" style="color:var(--t3)">El prestamo termina antes del ano 10</div>';
+      } else {
+        ex10 =
+          '<div class="ex-row"><span>Cuota en pesos:</span><strong style="color:var(--amber)">' + fmt(y10.avgPesos) + '</strong></div>' +
+          '<div class="ex-row"><span>Tu sueldo proyectado:</span><strong style="color:var(--green)">' + fmt(inc * (y10.uva / UVA_HOY)) + '</strong></div>' +
+          '<div class="ex-row"><span>Cuota/Ingreso:</span><strong style="color:var(--green)">' + fmtPct(y10.ratioN) + ' aprox. igual que hoy</strong></div>' +
+          '<div style="margin-top:6px;font-size:11px;color:var(--t3)">En pesos de hoy equivale a: <strong style="color:var(--text)">' + fmt(y10.avgReal) + '</strong></div>';
+      }
+      document.getElementById('example10').innerHTML =
+        '<div class="ex-title">Ejemplo: Ano 10</div>' + ex10;
+
+      // Tab Tabla
+      const cuotaHeader = viewReal ? 'Cuota (hoy $)' : 'Cuota $';
+      document.getElementById('tableTitle').textContent = 'Ano a ano' + (extra > 0 ? ' (con adelanto)' : '');
+      document.getElementById('toggleView').textContent = viewReal ? 'Ver nominal' : 'Ver pesos de hoy';
+      document.getElementById('tableHead').innerHTML =
+        '<tr>' +
+          '<th>Ano</th>' +
+          '<th>Saldo</th>' +
+          '<th>' + cuotaHeader + '</th>' +
+          '<th>UVA $</th>' +
+          '<th>Cuota/Ing</th>' +
+        '</tr>';
+      document.getElementById('tableBody').innerHTML = yearly.map(d => {
+        const cuota = viewReal ? d.avgReal : d.avgPesos;
+        const rc = d.ratioN > 25 ? 'var(--amber)' : 'var(--green)';
+        const saldo = d.bal < 1
+          ? '<span class="td-ok">OK</span>'
+          : fmtN(Math.round(d.bal));
+        return '<tr>' +
+          '<td class="td-year">' + d.y + '</td>' +
+          '<td>' + saldo + '</td>' +
+          '<td style="font-weight:600">' + fmt(cuota) + '</td>' +
+          '<td style="color:var(--t3)">$' + Math.round(d.uva).toLocaleString('es-AR') + '</td>' +
+          '<td style="color:' + rc + ';font-weight:600">' + fmtPct(d.ratioN) + '</td>' +
+        '</tr>';
+      }).join('');
+      document.getElementById('tableNote').textContent = viewReal
+        ? '"Cuota (hoy $)" muestra cuanto representaria la cuota en poder adquisitivo de hoy. Si tu sueldo sigue a la inflacion, este es el esfuerzo real.'
+        : 'Valores nominales. Los pesos futuros valen menos — mira la columna Cuota/Ing para el esfuerzo real. Asume ingreso ajustado por inflacion (UVA).';
+
+      // Tab Reglas
+      const rules = [
+        { icon: 'OK', color: 'var(--green)', bg: 'var(--green-soft)',
+          title: 'Podes cancelar total o parcialmente en cualquier momento',
+          body: 'Monto minimo de cancelacion parcial: 1 cuota.' },
+        { icon: '$', color: 'var(--amber)', bg: 'var(--amber-soft)',
+          title: 'Comision: 4% + IVA (primeros ' + comisionYears + ' anos)',
+          body: 'Despues de ' + comisionYears + ' anos (1/4 del plazo): sin comision. Calcula si el ahorro en intereses supera el 4.84% de comision.' },
+        { icon: 'Cap', color: 'var(--accent)', bg: 'var(--accent-soft)',
+          title: 'Solo pagas capital + intereses del periodo',
+          body: 'No pagas intereses futuros. El capital esta en UVAs, se convierte a pesos al valor del dia de cancelacion.' },
+        { icon: 'Opt', color: 'var(--t2)', bg: 'var(--surface-alt)',
+          title: 'Al cancelar parcialmente elegis',
+          body: 'a) Reducir plazo (misma cuota -> terminas antes)\nb) Reducir cuota (mismo plazo -> pagas menos por mes)' },
+      ];
+      document.getElementById('rulesContent').innerHTML = rules.map(r =>
+        '<div class="alert" style="background:' + r.bg + ';border:1px solid ' + r.color + '20">' +
+          '<div class="alert-title" style="color:' + r.color + '"><span>' + r.icon + '</span> ' + r.title + '</div>' +
+          '<div class="alert-body">' + r.body + '</div>' +
+        '</div>'
+      ).join('');
+
+      document.getElementById('estrategia').innerHTML =
+        '<div class="alert-title" style="color:var(--accent)">Estrategia recomendada</div>' +
+        '<div class="alert-body">Anos 1-' + comisionYears + ': paga la cuota normal. Adelanta solo si el excedente es grande (el ahorro en intereses tiene que superar el 4.84% de comision).\n\nAno ' + comisionYears + '+: adelanta todo lo que puedas, eligiendo "reducir plazo". Si un mes se complica, pagas solo la cuota minima.</div>';
+    }
+
+    function setTab(n) {
+      document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === n));
+      [0,1,2].forEach(i => {
+        document.getElementById('tab' + i).style.display = i === n ? 'block' : 'none';
+      });
+    }
+
+    function toggleView() {
+      viewReal = !viewReal;
+      render();
+    }
+
+    // Bind all inputs
+    ['cap','tna','plaz','ext','inc','inf1','inft'].forEach(id => {
+      document.getElementById(id).addEventListener('input', render);
+    });
+
+    render();
+  </script>
+</body>
+</html>
