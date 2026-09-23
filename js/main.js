@@ -40,17 +40,17 @@
         { type: 'img', src: 'images/cody/cody2.png' },
       ]
     },
-    fitbox: {
+    nexa: {
       num: 'CASO 01',
-      name: 'Fitbox',
-      desc: 'Ecommerce de suplementos con motor de precios automático conectado a cotización del dólar, cálculo de márgenes e impuestos, y recuperación de carritos abandonados.',
-      tags: ['WooCommerce', 'JavaScript', 'Node.js', 'OpenAI'],
-      link: 'https://www.fitbox.ar/',
+      name: 'Nexa Autos',
+      desc: 'Web para una agencia de autos usados. Catálogo con filtros por marca y precio, ficha de cada vehículo, consultas directas por WhatsApp y un panel de administración para publicar y editar autos sin tocar código.',
+      tags: ['Catálogo con filtros', 'Panel de administración', 'WhatsApp', 'Diseño responsive'],
+      link: 'https://nexa-autos.vercel.app/',
       images: [
-        { type: 'img', src: 'images/fitbox/fitbox1.png' },
-        { type: 'img', src: 'images/fitbox/fitbox2.png' },
-        { type: 'img', src: 'images/fitbox/fitbox3.png' },
-        { type: 'img', src: 'images/fitbox/fitbox4.png' },
+        { type: 'img', src: 'images/nexa/nexa1.png' },
+        { type: 'img', src: 'images/nexa/nexa2.png' },
+        { type: 'img', src: 'images/nexa/nexa3.png' },
+        { type: 'img', src: 'images/nexa/nexa4.png' },
       ]
     },
     chambea: {
