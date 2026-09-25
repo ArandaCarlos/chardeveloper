@@ -129,19 +129,19 @@
   /* ── FEED EN VIVO ── */
   const feed = $('#feed');
   const events = [
-    { i: '✓', c: '255,230,0', t: 'Pregunta respondida', s: 'MercadoLibre · “¿Hacen factura A?”', v: '9 s' },
-    { i: '↺', c: '52,245,160', t: 'Carrito recuperado', s: 'Recordatorio por WhatsApp', v: '+$52.900' },
-    { i: '⇄', c: '139,123,255', t: 'Stock sincronizado', s: 'Buzo frisa gris · 3 canales', v: '12 → 11' },
-    { i: '➜', c: '37,211,102', t: 'Aviso de envío', s: 'Pedido #1043 · Sofía M.', v: 'en camino' },
-    { i: '★', c: '255,181,71', t: 'Clienta volvió a comprar', s: 'Mensaje de recompra · 60 días', v: '+$18.400' },
-    { i: '%', c: '52,245,160', t: 'Promo aplicada', s: 'Línea invierno · 248 publicaciones', v: '−20%' },
+    { i: '✓', c: '201,146,0', t: 'Pregunta respondida', s: 'MercadoLibre · “¿Hacen factura A?”', v: '9 s' },
+    { i: '↺', c: '14,159,98', t: 'Carrito recuperado', s: 'Recordatorio por WhatsApp', v: '+$52.900' },
+    { i: '⇄', c: '123,77,255', t: 'Stock sincronizado', s: 'Buzo frisa gris · 3 canales', v: '12 → 11' },
+    { i: '➜', c: '22,163,74', t: 'Aviso de envío', s: 'Pedido #1043 · Sofía M.', v: 'en camino' },
+    { i: '★', c: '242,98,42', t: 'Clienta volvió a comprar', s: 'Mensaje de recompra · 60 días', v: '+$18.400' },
+    { i: '%', c: '63,85,221', t: 'Promo aplicada', s: 'Línea invierno · 248 publicaciones', v: '−20%' },
     { i: '✓', c: '225,48,108', t: 'Consulta por Instagram', s: '“¿Tienen local?” · respondida', v: '14 s' },
   ];
   let evIdx = 0;
   function pushEvent() {
     const e = events[evIdx++ % events.length];
     const li = document.createElement('li');
-    li.innerHTML = `<span class="ico" style="background:rgba(${e.c},.14);color:rgb(${e.c})">${e.i}</span>
+    li.innerHTML = `<span class="ico" style="background:rgba(${e.c},.12);color:rgb(${e.c})">${e.i}</span>
       <span class="t"><strong>${e.t}</strong><small>${e.s}</small></span>
       <span class="v">${e.v}</span>`;
     feed.prepend(li);
