@@ -5,795 +5,782 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Desarrollo de páginas web, aplicaciones web, chatbots con IA e integraciones a medida para negocios y empresas. Buenos Aires y remoto.">
-  <title>Char.Developer — Páginas web, aplicaciones y chatbots a medida | Buenos Aires</title>
+    content="Asistentes y automatizaciones para negocios que venden online en Tienda Nube, Shopify, WooCommerce y MercadoLibre: respuestas a compradores, carritos recuperados, stock sincronizado y un agente que te cuenta cómo viene tu negocio.">
+  <title>char.developer — Para negocios que venden online</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Char.Developer — Páginas web, aplicaciones y chatbots a medida">
+  <meta property="og:title" content="char.developer — Para negocios que venden online">
   <meta property="og:description"
-    content="Desarrollo de páginas web, aplicaciones web, chatbots con IA e integraciones a medida para tu negocio.">
+    content="Resuelvo lo que te come tiempo o te cuesta ventas: preguntas sin responder, carritos abandonados, stock desincronizado y más.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/og-image.jpg">
-
-  <!-- Google Search Console -->
-  <meta name="google-site-verification" content="tu-codigo-de-verificacion-aqui" />
+  <meta name="theme-color" content="#07080a">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Char.Developer",
-    "description": "Desarrollo de páginas web, aplicaciones web, chatbots con IA e integraciones a medida.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Buenos Aires",
-      "addressCountry": "AR"
-    }
+    "name": "char.developer",
+    "description": "Asistentes y automatizaciones para negocios que venden online: Tienda Nube, Shopify, WooCommerce y MercadoLibre.",
+    "founder": { "@type": "Person", "name": "Carlos Aranda" },
+    "areaServed": "AR",
+    "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" }
   }
   </script>
 </head>
 
 <body>
+  <div class="progress" id="progress"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
-  <nav id="nav">
-    <div class="nav-i">
-      <a href="#" class="logo">Char<span>.</span>Developer</a>
-      <ul class="nav-links">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#casos">Casos</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#stack">Stack</a></li>
-      </ul>
-      <a href="https://cal.com/char.developer/15min" class="nav-btn" target="_blank" rel="noopener">Agendá una llamada
-        →</a>
-      <button class="brgr" id="brgr" aria-label="Menú" aria-expanded="false">
-        <span></span><span></span><span></span>
+  <header class="nav" id="nav">
+    <div class="nav-in">
+      <a href="#top" class="logo" aria-label="char.developer, inicio">
+        <span>char<span class="logo-dot">.</span>developer</span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#problemas">Problemas</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#agente">Agente</a>
+        <a href="#en-publico">En público</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <a href="#contacto" class="btn btn-sm btn-primary nav-cta">Hablemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span>
       </button>
     </div>
-  </nav>
+  </header>
   <div class="mob" id="mob">
-    <a href="#servicios">Servicios</a>
-    <a href="#casos">Casos</a>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#stack">Stack</a>
-    <a href="https://cal.com/char.developer/15min" target="_blank" rel="noopener">Agendá una llamada →</a>
+    <a href="#problemas">Problemas</a>
+    <a href="#soluciones">Soluciones</a>
+    <a href="#agente">Agente</a>
+    <a href="#en-publico">En público</a>
+    <a href="#preguntas">Preguntas</a>
+    <a href="#contacto" class="btn btn-primary">Hablemos</a>
   </div>
 
-  <!-- ── HERO ── -->
-  <section id="hero">
-    <div class="hero-pattern"></div>
-    <div class="wrap" style="position:relative; z-index:1;">
-      <div class="hero-pill rv">
-        <span>Desarrollo de software · Buenos Aires</span>
+  <main id="top">
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="aurora" aria-hidden="true">
+        <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
       </div>
-      <h1 class="rv">El software que tu negocio necesita,<br>hecho a tu medida.</h1>
-      <p class="hero-sub rv d1">
-        Páginas web, aplicaciones, chatbots para WhatsApp e integraciones entre tus sistemas. Vos me contás qué
-        necesitás resolver y yo me encargo de todo: desde la idea hasta que está funcionando.
-      </p>
-      <div class="hero-ctas rv d2">
-        <a href="https://cal.com/char.developer/15min" class="btn btn-primary" target="_blank" rel="noopener">
-          Agendá una llamada <span>→</span>
-        </a>
-        <a href="#metodo" class="btn btn-outline">Ver cómo trabajo</a>
-      </div>
-      <div class="hero-stats rv d3">
-        <div>
-          <div class="stat-n">6<span>+</span></div>
-          <div class="stat-l">años de ingeniería</div>
-        </div>
-        <div>
-          <div class="stat-n">5<span>+</span></div>
-          <div class="stat-l">proyectos en producción</div>
-        </div>
-        <div>
-          <div class="stat-n">24/7</div>
-          <div class="stat-l">funcionando sin parar</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="grid-bg" aria-hidden="true"></div>
 
-  <!-- ── SERVICIOS (Dark Section) ── -->
-  <section id="servicios" class="dark-section">
-    <div class="wrap">
-      <span class="sec-label rv">Servicios</span>
-      <h2 class="rv">Lo que construyo para tu negocio</h2>
-      <p class="sec-subtitle rv d1">Te ayudo a tener presencia online, ordenar tu operación y atender mejor a tus
-        clientes. Explicado simple y con un presupuesto claro desde el inicio.</p>
-      <div class="bento-grid rv d2">
-        <div class="bento-card span-2">
-          <div class="bento-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <path d="M8 21h8M12 17v4" />
-              <path d="M2 7h20" />
-            </svg>
-          </div>
-          <h3>Páginas web</h3>
-          <p>Sitios profesionales, rápidos y que se ven bien en el celular: webs institucionales, landing pages y
-            tiendas online. Pensadas para que te encuentren en Google y para que quien entra te escriba o te compre.</p>
-        </div>
-        <div class="bento-card">
-          <div class="bento-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M3 9h18M9 3v18" />
-            </svg>
-          </div>
-          <h3>Aplicaciones web</h3>
-          <p>Sistemas a medida para tu negocio: turnos, presupuestos, stock, paneles de gestión o plataformas con
-            usuarios y pagos. Sin adaptarte a un software genérico.</p>
-        </div>
-        <div class="bento-card">
-          <div class="bento-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-            </svg>
-          </div>
-          <h3>Chatbots con IA</h3>
-          <p>Un asistente que responde a tus clientes por WhatsApp o en tu web las 24 horas: contesta consultas, toma
-            pedidos y agenda reuniones.</p>
-        </div>
-        <div class="bento-card span-2">
-          <div class="bento-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round">
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-            </svg>
-          </div>
-          <h3>Integraciones y automatizaciones</h3>
-          <p>Hago que tus herramientas trabajen juntas: tu tienda online, tu sistema de gestión, la facturación,
-            MercadoPago y WhatsApp. Se acabó cargar lo mismo dos veces y las tareas repetitivas pasan a hacerse
-            solas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── MÉTODO ── -->
-  <section id="metodo" class="method-section">
-    <div class="wrap">
-      <div style="text-align:center; margin-bottom:1rem;">
-        <span class="sec-label rv">Método</span>
-        <h2 class="rv">Cómo trabajo</h2>
-      </div>
-      <div class="method-timeline rv d1">
-        <div class="method-step">
-          <div class="method-num">01</div>
-          <div class="method-dot"></div>
-          <h3>Charlamos</h3>
-          <p>Me contás cómo funciona tu negocio y qué querés resolver.</p>
-        </div>
-        <div class="method-step">
-          <div class="method-num">02</div>
-          <div class="method-dot"></div>
-          <h3>Propuesta</h3>
-          <p>Te digo qué conviene hacer, cuánto cuesta y cuánto tarda.</p>
-        </div>
-        <div class="method-step">
-          <div class="method-num">03</div>
-          <div class="method-dot"></div>
-          <h3>Acuerdo</h3>
-          <p>Dejamos por escrito qué incluye el proyecto y cómo lo vamos a medir.</p>
-        </div>
-        <div class="method-step">
-          <div class="method-num">04</div>
-          <div class="method-dot"></div>
-          <h3>Desarrollo</h3>
-          <p>Lo construyo y te muestro avances para que lo veas crecer.</p>
-        </div>
-        <div class="method-step">
-          <div class="method-num">05</div>
-          <div class="method-dot"></div>
-          <h3>Lanzamiento</h3>
-          <p>Lo publicamos, te enseño a usarlo y te acompaño después.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── MODAL ── -->
-  <div class="modal-backdrop" id="modalBd" onclick="closeModal(event)">
-    <div class="modal" id="modal">
-      <div class="modal-slider">
-        <div class="slider-track" id="sliderTrack"></div>
-        <button class="slider-btn slider-prev" onclick="slide(-1)">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <polyline points="9,2 4,7 9,12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
-        <button class="slider-btn slider-next" onclick="slide(1)">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <polyline points="5,2 10,7 5,12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
-        <div class="slider-dots" id="sliderDots"></div>
-      </div>
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title-wrap">
-            <div class="modal-n" id="modalN"></div>
-            <div class="modal-name" id="modalName"></div>
-          </div>
-          <button class="modal-close" onclick="closeModal()">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-        <p class="modal-desc" id="modalDesc"></p>
-        <div class="modal-tags" id="modalTags"></div>
-        <div class="modal-footer">
-          <a href="#" id="modalLink" class="modal-link" target="_blank" rel="noopener">Ver proyecto en vivo →</a>
-          <a href="https://cal.com/char.developer/15min" class="modal-link-ghost" target="_blank" rel="noopener">¿Querés
-            algo así? Hablemos</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── CASOS ── -->
-  <section id="casos" class="cases-section">
-    <div class="wrap">
-      <span class="sec-label rv">Casos</span>
-      <h2 class="rv">Proyectos reales en producción</h2>
-      <div class="cases-grid">
-
-        <div class="case-card rv" onclick="openModal('nexa')">
-          <div class="case-thumb">
-            <img src="images/nexa/nexa2.png" alt="Nexa Autos screenshot" loading="lazy">
-            <div class="case-thumb-overlay"><span>Ver caso</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-number">CASO 01</div>
-            <div class="case-name">Nexa — Web para agencia de autos</div>
-            <p class="case-desc"><strong>Problema:</strong> mostrar el stock de autos online y tenerlo siempre actualizado.<br>
-              <strong>Resultado:</strong> catálogo con filtros y un panel para publicar cada auto en minutos.
-            </p>
-            <div class="case-tags">
-              <span class="case-tag">Panel de administración</span>
-              <span class="case-tag">Consultas por WhatsApp</span>
-            </div>
-            <a href="https://nexa-autos.vercel.app/" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
-          </div>
-        </div>
-
-        <div class="case-card rv d1" onclick="openModal('cody')">
-          <div class="case-thumb">
-            <img src="images/cody/cody1.png" alt="Cody screenshot" loading="lazy">
-            <div class="case-thumb-overlay"><span>Ver caso</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-number">CASO 02</div>
-            <div class="case-name">Cody — Agente de ventas por WhatsApp</div>
-            <p class="case-desc"><strong>Problema:</strong> consultas que se perdían sin responder.<br>
-              <strong>Resultado:</strong> atención 24/7 y reuniones agendadas solas.
-            </p>
-            <div class="case-tags">
-              <span class="case-tag">Atención 24/7</span>
-              <span class="case-tag">Agendamiento automático</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="case-card rv d2" onclick="openModal('presupuestosya')">
-          <div class="case-thumb">
-            <img src="images/prespuestosya/pya1.png" alt="Presupuestos Ya screenshot" loading="lazy">
-            <div class="case-thumb-overlay"><span>Ver caso</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-number">CASO 03</div>
-            <div class="case-name">Presupuestos Ya — SaaS de presupuestos</div>
-            <p class="case-desc"><strong>Problema:</strong> profesionales que perdían trabajos por demorar días.<br>
-              <strong>Resultado:</strong> presupuestos en 60 segundos con suscriptores pagos.
-            </p>
-            <div class="case-tags">
-              <span class="case-tag">Presupuestos en 60s</span>
-              <span class="case-tag">Suscripciones activas</span>
-            </div>
-            <a href="https://presupuestosya.app" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
-          </div>
-        </div>
-
-        <div class="case-card rv d3" onclick="openModal('chambea')">
-          <div class="case-thumb">
-            <img src="images/chambea/chambea1.png" alt="Chambea screenshot" loading="lazy">
-            <div class="case-thumb-overlay"><span>Ver caso</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-number">CASO 04</div>
-            <div class="case-name">Chambea — Plataforma de oficios</div>
-            <p class="case-desc"><strong>Problema:</strong> conectar clientes con trabajadores sin fricción.<br>
-              <strong>Resultado:</strong> contacto directo por WhatsApp en dos clics.
-            </p>
-            <div class="case-tags">
-              <span class="case-tag">Cero fricción</span>
-              <span class="case-tag">Contacto directo</span>
-            </div>
-            <a href="https://www.chambea.com.ar/" class="btn-ghost" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-top:0.75rem; font-size:0.82rem;">Ver proyecto en vivo →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SOBRE MÍ ── -->
-  <section id="sobre-mi" class="about-section">
-    <div class="wrap">
-      <div class="about-inner">
-        <div class="rv">
-          <img class="about-img" src="images/yo.jpeg" alt="Carlos Aranda" loading="lazy">
-        </div>
-        <div class="about-text rv d1">
-          <span class="sec-label">Sobre mí</span>
-          <h2>Carlos Aranda</h2>
-          <p style="color:var(--text-muted); margin-bottom:1.5rem;">Desarrollador de software · Buenos Aires, AR</p>
-          <p>Hace más de 6 años que desarrollo sistemas para empresas de distintos países e industrias, incluyendo
-            retailers internacionales, donde todo tiene que funcionar bien todos los días.</p>
-          <p>En ese camino vi de cerca lo que le pasa a muchos negocios: tiempo perdido en planillas, consultas que
-            quedan sin responder, información cargada dos veces. Hoy uso esa experiencia para crear páginas web,
-            aplicaciones y chatbots para negocios de todos los tamaños.</p>
-          <p><strong>Trabajás directamente conmigo, de principio a fin: sin intermediarios y hablando en tu
-              idioma.</strong></p>
-
-          <div class="about-socials">
-            <a href="https://www.instagram.com/char.developer" class="about-social-btn" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-              </svg>
-              Instagram
-            </a>
-            <a href="https://www.youtube.com/@char.aranda" class="about-social-btn" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path
-                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-                <polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="currentColor" stroke="none" />
-              </svg>
-              YouTube
-            </a>
-            <a href="https://www.linkedin.com/in/arandacarlosdamian/" class="about-social-btn" target="_blank"
-              rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              LinkedIn
-            </a>
-          </div>
-          <div class="badges">
-            <div class="badge">Oracle OIC Certified</div>
-            <div class="badge">PL/SQL Certified</div>
-            <div class="badge">6+ años en sistemas enterprise</div>
-            <div class="badge">5+ proyectos en producción</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TESTIMONIOS ── -->
-  <section class="test-section">
-    <div class="wrap">
-      <span class="sec-label rv">Testimonios</span>
-      <h2 class="rv">Lo que dicen de mi trabajo</h2>
-      <p class="sec-subtitle rv d1">Trabajé con equipos de empresas internacionales. Esto dicen las personas con las
-        que desarrollé proyectos.</p>
-      <div class="test-grid">
-        <div class="test-card rv">
-          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span></div>
-          <p class="test-quote">Carlos se integró al equipo muy rápido y desde el primer momento demostró buena actitud
-            y ganas de aprender. Es una persona comprometida, responsable y muy fácil para trabajar.</p>
-          <div class="test-author">
-            <div class="test-avatar">NE</div>
-            <div>
-              <div class="test-name">Nes E.</div>
-              <div class="test-role">Tech Lead · Cloud Solutions Latam · Zoho</div>
-            </div>
-          </div>
-        </div>
-        <div class="test-card rv d1">
-          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span></div>
-          <p class="test-quote">Trabajé con Carlos en proyectos de OIC y puedo decir que es una persona con mucha
-            capacidad de aprendizaje y muy buena predisposición. Siempre con ganas de entender el fondo de las cosas.
+      <div class="wrap hero-in">
+        <div class="hero-copy">
+          <a href="#en-publico" class="pill rv">
+            <span class="pulse"></span>
+            Construyendo en público para tiendas online
+            <span class="pill-arrow">→</span>
+          </a>
+          <h1 class="hero-title split">
+            Tu negocio ya vende online. Lo que lo frena puede <em>andar solo.</em>
+          </h1>
+          <p class="hero-sub rv d2">
+            Preguntas sin responder, carritos que nadie recupera, stock que no coincide entre canales.
+            Construyo asistentes y automatizaciones para <strong>Tienda Nube, Shopify, WooCommerce y
+              MercadoLibre</strong> que se ocupan de eso mientras vos te ocupás de vender.
           </p>
-          <div class="test-author">
-            <div class="test-avatar">PV</div>
-            <div>
-              <div class="test-name">Pablo V.</div>
-              <div class="test-role">OIC Specialist · Oracle</div>
-            </div>
+          <div class="hero-ctas rv d3">
+            <a href="#contacto" class="btn btn-primary btn-lg magnetic">
+              Contame qué te pasa <span class="arr">→</span>
+            </a>
+            <a href="#agente" class="btn btn-ghost btn-lg">
+              <span class="play"><svg viewBox="0 0 24 24" width="12" height="12">
+                  <path d="M7 4l13 8-13 8z" fill="currentColor" />
+                </svg></span>
+              Ver el agente en acción
+            </a>
+          </div>
+          <div class="hero-trust rv d4">
+            <img src="images/carlos.jpg" alt="" width="36" height="36">
+            <p>Más de 6 años conectando sistemas para <strong>Oracle</strong> y <strong>retailers
+                internacionales</strong>. Ahora, para tu tienda.</p>
           </div>
         </div>
-        <div class="test-card rv d2">
-          <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-              class="star">★</span><span class="star">★</span></div>
-          <p class="test-quote">Contraté a Carlos para un rol de desarrollo después de un tiempo que no tocaba código y
-            aposté por él. No me equivoqué. Se adaptó rápido a un entorno exigente. Gran profesional.</p>
-          <div class="test-author">
-            <div class="test-avatar">JO</div>
-            <div>
-              <div class="test-name">Jonathan O.</div>
-              <div class="test-role">Engineering Manager · Zinier</div>
+
+        <!-- Panel en vivo -->
+        <div class="hero-visual rv d2" id="heroVisual">
+          <div class="panel tilt" id="tilt">
+            <div class="panel-glow" aria-hidden="true"></div>
+            <div class="panel-head">
+              <div class="panel-title">
+                <span class="live-dot"></span> Tu tienda, hoy
+              </div>
+              <div class="panel-chips">
+                <span>Tienda Nube</span><span>MercadoLibre</span><span>WhatsApp</span>
+              </div>
             </div>
+            <div class="panel-kpis">
+              <div class="kpi">
+                <span class="kpi-l">Ventas</span>
+                <span class="kpi-n" data-count="38" data-prefix="">0</span>
+                <span class="kpi-d up">+12%</span>
+              </div>
+              <div class="kpi">
+                <span class="kpi-l">Respondidas solas</span>
+                <span class="kpi-n" data-count="94" data-suffix="%">0</span>
+                <span class="kpi-d">de 71 preguntas</span>
+              </div>
+              <div class="kpi">
+                <span class="kpi-l">Carritos recuperados</span>
+                <span class="kpi-n" data-count="7">0</span>
+                <span class="kpi-d up">$418.200</span>
+              </div>
+            </div>
+            <svg class="spark" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#34f5a0" stop-opacity=".35" />
+                  <stop offset="1" stop-color="#34f5a0" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path class="spark-area"
+                d="M0 72 C30 70 45 58 70 60 S115 44 140 50 S185 30 210 36 S255 20 280 28 S330 12 355 16 S390 6 400 8 L400 90 L0 90Z"
+                fill="url(#sparkFill)" />
+              <path class="spark-line"
+                d="M0 72 C30 70 45 58 70 60 S115 44 140 50 S185 30 210 36 S255 20 280 28 S330 12 355 16 S390 6 400 8"
+                fill="none" stroke="#34f5a0" stroke-width="2" />
+            </svg>
+            <ul class="feed" id="feed" aria-live="off"></ul>
+            <div class="panel-foot">Ejemplo ilustrativo</div>
+          </div>
+
+          <div class="float-card fc1">
+            <span class="fc-ico ok">✓</span>
+            <div><strong>Pregunta respondida</strong><span>MercadoLibre · 11 s</span></div>
+          </div>
+          <div class="float-card fc2">
+            <span class="fc-ico sync">⇄</span>
+            <div><strong>Stock sincronizado</strong><span>3 canales · al instante</span></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── INTERACTIVE STACK ── -->
-  <section id="stack" class="stack-section">
-    <div class="wrap">
-      <div class="stack-layout">
-        <div class="stack-left rv">
-          <span class="sec-label">Mi Stack</span>
-          <h2>Las tecnologías con las que construyo</h2>
-          <p class="sec-subtitle" style="margin-top:1rem;">Cada proyecto usa la combinación que mejor le sirve. Hacé
-            clic para ver ejemplos de lo que se puede hacer con cada una.</p>
-          <div class="stack-tabs">
-            <button class="stack-tab active" data-tab="n8n">
-              <span class="tab-dot"></span>
-              n8n — Automatizaciones
-              <code>&lt;workflow/&gt;</code>
-            </button>
-            <button class="stack-tab" data-tab="oracle">
-              <span class="tab-dot"></span>
-              Integraciones
-              <code>&lt;integration/&gt;</code>
-            </button>
-            <button class="stack-tab" data-tab="openai">
-              <span class="tab-dot"></span>
-              OpenAI — Agentes IA
-              <code>&lt;agent/&gt;</code>
-            </button>
-            <button class="stack-tab" data-tab="supabase">
-              <span class="tab-dot"></span>
-              Supabase — Base de datos
-              <code>&lt;database/&gt;</code>
-            </button>
-            <button class="stack-tab" data-tab="nextjs">
-              <span class="tab-dot"></span>
-              Next.js — Interfaces
-              <code>&lt;app/&gt;</code>
-            </button>
-          </div>
+    <!-- ── PLATAFORMAS ── -->
+    <section class="logos" aria-label="Plataformas con las que trabajo">
+      <p class="logos-t">Trabajo con lo que ya usás. No tenés que cambiar nada.</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="lg"><i style="--c:#2c7df0"></i>Tienda Nube</span>
+          <span class="lg"><i style="--c:#95bf47"></i>Shopify</span>
+          <span class="lg"><i style="--c:#ffe600"></i>MercadoLibre</span>
+          <span class="lg"><i style="--c:#9b5c8f"></i>WooCommerce</span>
+          <span class="lg"><i style="--c:#00b1ea"></i>Mercado Pago</span>
+          <span class="lg"><i style="--c:#25d366"></i>WhatsApp</span>
+          <span class="lg"><i style="--c:#e1306c"></i>Instagram</span>
+          <span class="lg"><i style="--c:#34a853"></i>Google Sheets</span>
+          <!-- duplicado para el loop -->
+          <span class="lg" aria-hidden="true"><i style="--c:#2c7df0"></i>Tienda Nube</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#95bf47"></i>Shopify</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#ffe600"></i>MercadoLibre</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#9b5c8f"></i>WooCommerce</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#00b1ea"></i>Mercado Pago</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#25d366"></i>WhatsApp</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#e1306c"></i>Instagram</span>
+          <span class="lg" aria-hidden="true"><i style="--c:#34a853"></i>Google Sheets</span>
         </div>
-        <div class="stack-preview rv d1">
-          <!-- n8n Preview -->
-          <div class="stack-preview-item active" data-preview="n8n">
-            <div class="preview-workflow">
-              <div class="workflow-node">
-                <div class="workflow-node-icon" style="background:#FEF3C7;">⚡</div>
-                <div class="workflow-node-text">
-                  <strong>Webhook — Nuevo pedido</strong>
-                  <span>Escucha el POST del ecommerce</span>
-                </div>
+      </div>
+    </section>
+
+    <!-- ── PROBLEMAS ── -->
+    <section id="problemas" class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">¿Te suena alguna?</span>
+          <h2 class="rv">Lo que pasa en casi todos los negocios que venden online.</h2>
+          <p class="sec-sub rv d1">Nadie lo está haciendo mal. Simplemente el día tiene 24 horas y la operación
+            crece más rápido que el equipo.</p>
+        </div>
+
+        <div class="prob-grid">
+          <article class="prob spot rv">
+            <span class="prob-n">01</span>
+            <h3>Preguntas que quedan sin responder</h3>
+            <p>En MercadoLibre el que contesta primero suele llevarse la venta. Y las preguntas llegan a las 23:40
+              también.</p>
+            <span class="prob-fix">→ Respuestas automáticas, a cualquier hora</span>
+          </article>
+          <article class="prob spot rv d1">
+            <span class="prob-n">02</span>
+            <h3>Carritos abandonados</h3>
+            <p>Alguien eligió, llegó hasta el final y se fue. Muchas veces solo necesitaba un recordatorio a tiempo.
+            </p>
+            <span class="prob-fix">→ Recuperación automática de carritos</span>
+          </article>
+          <article class="prob spot rv d2">
+            <span class="prob-n">03</span>
+            <h3>Stock que no coincide</h3>
+            <p>Se vendió en MercadoLibre algo que ya se había vendido en la tienda. Cancelación, reclamo y
+              reputación en juego.</p>
+            <span class="prob-fix">→ Stock sincronizado entre canales</span>
+          </article>
+          <article class="prob spot rv d3">
+            <span class="prob-n">04</span>
+            <h3>Promos armadas a mano</h3>
+            <p>Cambiar precios producto por producto para un Hot Sale es una tarde entera. Y deshacerlo, otra.</p>
+            <span class="prob-fix">→ Campañas aplicadas en un paso</span>
+          </article>
+          <article class="prob spot rv">
+            <span class="prob-n">05</span>
+            <h3>“¿Dónde está mi pedido?”</h3>
+            <p>La misma pregunta veinte veces por día, cuando la respuesta ya está en el sistema de envíos.</p>
+            <span class="prob-fix">→ Seguimiento que avisa solo</span>
+          </article>
+          <article class="prob spot rv d1">
+            <span class="prob-n">06</span>
+            <h3>Clientes que compraron una vez</h3>
+            <p>Ya confiaron en vos, les gustó, y nadie les volvió a escribir.</p>
+            <span class="prob-fix">→ Postventa que los trae de vuelta</span>
+          </article>
+          <article class="prob spot rv d2">
+            <span class="prob-n">07</span>
+            <h3>Datos en cinco pantallas</h3>
+            <p>Para saber cómo viene la semana hay que abrir la tienda, MercadoLibre, Mercado Pago y una planilla.
+            </p>
+            <span class="prob-fix">→ Un agente que te lo cuenta</span>
+          </article>
+          <a href="#contacto" class="prob prob-cta spot rv d3">
+            <span class="prob-n">08</span>
+            <h3>¿Te pasa otra cosa?</h3>
+            <p>Si te come tiempo o te cuesta ventas, probablemente se pueda resolver. Contame.</p>
+            <span class="prob-cta-btn">Hablemos <span>→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOLUCIONES ── -->
+    <section id="soluciones" class="sec sec-alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Soluciones</span>
+          <h2 class="rv">Cada problema, resuelto con algo que funciona solo.</h2>
+          <p class="sec-sub rv d1">No vendo un paquete cerrado. Arranco por lo que más te duele y lo
+            conecto con lo que ya usás.</p>
+        </div>
+
+        <div class="bento">
+          <!-- Respuestas -->
+          <article class="card spot span-2 rv">
+            <div class="card-copy">
+              <span class="tag">Atención</span>
+              <h3>Respuestas a compradores, en segundos</h3>
+              <p>Un asistente que conoce tus productos, tu stock y tus envíos. Responde en MercadoLibre, WhatsApp e
+                Instagram con tu tono. Si no sabe algo, no inventa: se lo pasa a una persona.</p>
+            </div>
+            <div class="viz viz-qa" aria-hidden="true">
+              <div class="qa-q">
+                <span class="qa-who">Comprador · 23:41</span>
+                ¿Tenés la campera en talle L? ¿Llega antes del viernes?
               </div>
-              <div class="workflow-connector"></div>
-              <div class="workflow-node">
-                <div class="workflow-node-icon" style="background:#DBEAFE;">🔄</div>
-                <div class="workflow-node-text">
-                  <strong>Validar stock en ERP</strong>
-                  <span>API REST → sistema central</span>
-                </div>
+              <div class="qa-a">
+                <span class="qa-who">Tu tienda · 23:41</span>
+                ¡Hola! Sí, nos quedan 4 en talle L. Si comprás hoy, con Envío Flex te llega el jueves.
+                <span class="qa-time">Respondida en 9 s</span>
               </div>
-              <div class="workflow-connector"></div>
-              <div class="workflow-node">
-                <div class="workflow-node-icon" style="background:#D1FAE5;">📄</div>
-                <div class="workflow-node-text">
-                  <strong>Generar factura AFIP</strong>
-                  <span>Facturación electrónica automática</span>
-                </div>
+            </div>
+          </article>
+
+          <!-- Carritos -->
+          <article class="card spot rv d1">
+            <div class="card-copy">
+              <span class="tag">Ventas</span>
+              <h3>Carritos recuperados</h3>
+              <p>Un recordatorio amable en el momento justo, por mail o WhatsApp. Sin insistir de más.</p>
+            </div>
+            <div class="viz viz-cart" aria-hidden="true">
+              <div class="step"><i></i><span>Abandonó el carrito</span><b>14:02</b></div>
+              <div class="step"><i></i><span>Recordatorio por WhatsApp</span><b>15:02</b></div>
+              <div class="step done"><i></i><span>Compró · $52.900</span><b>15:38</b></div>
+            </div>
+          </article>
+
+          <!-- Stock -->
+          <article class="card spot rv">
+            <div class="card-copy">
+              <span class="tag">Operación</span>
+              <h3>Stock sincronizado</h3>
+              <p>Se vende en un canal y se descuenta en todos. Chau sobreventa, chau cancelaciones.</p>
+            </div>
+            <div class="viz viz-stock" aria-hidden="true">
+              <div class="stk"><span>Tienda Nube</span><b class="stk-n">12</b></div>
+              <div class="stk"><span>MercadoLibre</span><b class="stk-n">12</b></div>
+              <div class="stk"><span>Local</span><b class="stk-n">12</b></div>
+              <div class="stk-sale" id="stkSale">Venta en MercadoLibre</div>
+            </div>
+          </article>
+
+          <!-- Promos -->
+          <article class="card spot rv d1">
+            <div class="card-copy">
+              <span class="tag">Campañas</span>
+              <h3>Promos en un paso</h3>
+              <p>“20% en toda la línea invierno hasta el domingo.” Se aplica, se publica y se vuelve atrás solo.</p>
+            </div>
+            <div class="viz viz-promo" aria-hidden="true">
+              <div class="pr"><span>Buzo frisa</span><s>$34.000</s><b>$27.200</b></div>
+              <div class="pr"><span>Campera puffer</span><s>$89.000</s><b>$71.200</b></div>
+              <div class="pr"><span>Gorro lana</span><s>$12.500</s><b>$10.000</b></div>
+              <div class="pr-btn">Aplicado a 248 publicaciones</div>
+            </div>
+          </article>
+
+          <!-- Pedido -->
+          <article class="card spot rv d2">
+            <div class="card-copy">
+              <span class="tag">Postventa</span>
+              <h3>“¿Dónde está mi pedido?”, resuelto</h3>
+              <p>El comprador recibe cada novedad del envío sin que nadie tenga que buscarla.</p>
+            </div>
+            <div class="viz viz-track" aria-hidden="true">
+              <div class="trk">
+                <span class="t on">Pagado</span><span class="t on">Preparado</span><span class="t on cur">En
+                  camino</span><span class="t">Entregado</span>
               </div>
-              <div class="workflow-connector"></div>
-              <div class="workflow-node">
-                <div class="workflow-node-icon" style="background:#EDE9FE;">✅</div>
-                <div class="workflow-node-text">
-                  <strong>Notificar por WhatsApp</strong>
-                  <span>Confirmación al cliente + al equipo</span>
-                </div>
+              <div class="trk-msg">Tu pedido #1043 salió hoy. Llega mañana entre 9 y 18 h.</div>
+            </div>
+          </article>
+
+          <!-- Recompra -->
+          <article class="card spot span-2 rv">
+            <div class="card-copy">
+              <span class="tag">Fidelización</span>
+              <h3>Clientes que vuelven</h3>
+              <p>El que compró un sérum hace 60 días probablemente lo esté terminando. Un mensaje en el momento
+                justo, con su nombre y lo que compró, hace más que cualquier newsletter.</p>
+            </div>
+            <div class="viz viz-wa" aria-hidden="true">
+              <div class="wa-bubble">
+                Hola Sofi. Hace dos meses te llevaste el Sérum Vitamina C. Si se te está terminando, esta semana
+                tenés envío gratis en la recompra.
+                <span class="wa-meta">10:15 ✓✓</span>
               </div>
+              <div class="wa-bubble me">
+                ¡Justo! Me queda poquito. Pasame el link 🙌
+                <span class="wa-meta">10:22</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Agente -->
+          <a href="#agente" class="card card-agent spot rv d1">
+            <div class="card-copy">
+              <span class="tag">Tu negocio, en una charla</span>
+              <h3>Un agente que sabe cómo viene tu semana</h3>
+              <p>¿Cuánto vendimos? ¿Cuántos carritos? ¿Qué se está por agotar? Le preguntás por WhatsApp y te
+                contesta con tus números.</p>
+            </div>
+            <span class="card-agent-go">Probalo acá abajo <span>↓</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AGENTE ── -->
+    <section id="agente" class="sec agent-sec">
+      <div class="agent-bg" aria-hidden="true"></div>
+      <div class="wrap agent-in">
+        <div class="agent-copy">
+          <span class="eyebrow rv">El agente de tu negocio</span>
+          <h2 class="rv">Preguntale a tu negocio como le preguntarías a <em>una persona.</em></h2>
+          <p class="sec-sub rv d1">Un agente conectado a tu tienda, MercadoLibre y Mercado Pago. Le escribís por
+            WhatsApp y te contesta con tus números reales. Sin abrir cinco pantallas, sin armar planillas.</p>
+          <ul class="agent-list rv d2">
+            <li>Ventas, carritos, preguntas y stock en una sola conversación</li>
+            <li>Te avisa cuando algo se sale de lo normal</li>
+            <li>Si le pedís una acción, te la muestra y espera tu confirmación</li>
+          </ul>
+          <p class="agent-hint rv d3">Tocá una pregunta para probarlo →</p>
+        </div>
+
+        <div class="chat rv d1" id="chat">
+          <div class="chat-top">
+            <div class="chat-avatar">c.</div>
+            <div class="chat-who">
+              <strong>Asistente de tu negocio</strong>
+              <span><i class="live-dot"></i> conectado a Tienda Nube, MercadoLibre y Mercado Pago</span>
             </div>
           </div>
-
-          <!-- Oracle OIC Preview -->
-          <div class="stack-preview-item" data-preview="oracle">
-            <div class="preview-integration">
-              <div class="integration-row">
-                <div class="integration-box">
-                  <div style="font-size:1.5rem;">🏢</div>
-                  <strong>ERP</strong>
-                  <span>Oracle / SAP</span>
-                </div>
-                <div class="integration-arrow">→</div>
-                <div class="integration-center">
-                  <strong>OIC Engine</strong>
-                  <span>Transform & Route</span>
-                </div>
-                <div class="integration-arrow">→</div>
-                <div class="integration-box">
-                  <div style="font-size:1.5rem;">🛒</div>
-                  <strong>Ecommerce</strong>
-                  <span>WooCommerce</span>
-                </div>
-              </div>
-              <div class="integration-row">
-                <div class="integration-box">
-                  <div style="font-size:1.5rem;">📊</div>
-                  <strong>CRM</strong>
-                  <span>Zoho / Salesforce</span>
-                </div>
-                <div class="integration-arrow">→</div>
-                <div class="integration-center">
-                  <strong>OIC Engine</strong>
-                  <span>Sync & Validate</span>
-                </div>
-                <div class="integration-arrow">→</div>
-                <div class="integration-box">
-                  <div style="font-size:1.5rem;">📋</div>
-                  <strong>Facturación</strong>
-                  <span>AFIP / ARCA</span>
-                </div>
-              </div>
-            </div>
+          <div class="chat-body" id="chatBody" aria-live="polite">
+            <div class="msg bot">Hola 👋 Tengo a mano ventas, carritos, preguntas y stock. ¿Qué querés saber?</div>
           </div>
-
-          <!-- OpenAI Preview -->
-          <div class="stack-preview-item" data-preview="openai">
-            <div class="preview-chat">
-              <div class="chat-header">
-                <div class="chat-avatar">🤖</div>
-                <div class="chat-header-text">
-                  <strong>Cody — Agente de ventas</strong>
-                  <span>● En línea</span>
-                </div>
-              </div>
-              <div class="chat-messages">
-                <div class="chat-msg bot">¡Hola! Soy Cody, el asistente virtual de la empresa. ¿En qué te puedo ayudar?
-                </div>
-                <div class="chat-msg user" style="animation-delay:0.2s">Hola, quería consultar por el servicio de
-                  automatización</div>
-                <div class="chat-msg bot" style="animation-delay:0.4s">¡Genial! Para poder orientarte mejor, ¿podrías
-                  contarme qué sistemas usás actualmente y qué procesos te gustaría automatizar?</div>
-                <div class="chat-msg user" style="animation-delay:0.6s">Usamos WooCommerce y tenemos problemas con el
-                  stock</div>
-                <div class="chat-msg bot" style="animation-delay:0.8s">Perfecto, justamente es uno de los casos más
-                  comunes. Te agendo una llamada de 15 min con Carlos para el análisis. ¿Te viene bien mañana a las
-                  10hs?</div>
-              </div>
-            </div>
+          <div class="chat-chips" id="chatChips">
+            <button data-q="ventas">¿Cuántas ventas tuvimos esta semana?</button>
+            <button data-q="carritos">¿Cuántos carritos se abandonaron?</button>
+            <button data-q="stock">¿Qué se está por quedar sin stock?</button>
+            <button data-q="preguntas">¿Cuántas preguntas entraron hoy en ML?</button>
           </div>
+          <div class="chat-foot">Demo con datos de ejemplo. Tu agente responde con los números de tu negocio.</div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Supabase Preview -->
-          <div class="stack-preview-item" data-preview="supabase">
-            <div class="preview-table">
-              <div class="mock-table">
-                <div class="mock-table-header">
-                  <div>Cliente</div>
-                  <div>Integración</div>
-                  <div>Última sync</div>
-                  <div>Estado</div>
-                </div>
-                <div class="mock-table-row">
-                  <div>Nexa Autos</div>
-                  <div>Admin → Catálogo</div>
-                  <div>Hace 2 min</div>
-                  <div><span class="status-badge ok">Activo</span></div>
-                </div>
-                <div class="mock-table-row">
-                  <div>Retail EU</div>
-                  <div>SAP → Magento</div>
-                  <div>Hace 5 min</div>
-                  <div><span class="status-badge ok">Activo</span></div>
-                </div>
-                <div class="mock-table-row">
-                  <div>Cody Bot</div>
-                  <div>WhatsApp → CRM</div>
-                  <div>Hace 1 min</div>
-                  <div><span class="status-badge ok">Activo</span></div>
-                </div>
-                <div class="mock-table-row">
-                  <div>PresupYa</div>
-                  <div>Stripe → Supabase</div>
-                  <div>Hace 8 min</div>
-                  <div><span class="status-badge pending">Sync</span></div>
-                </div>
-                <div class="mock-table-row">
-                  <div>Chambea</div>
-                  <div>Auth → Profiles</div>
-                  <div>Hace 12 min</div>
-                  <div><span class="status-badge ok">Activo</span></div>
-                </div>
-              </div>
-            </div>
+    <!-- ── CÓMO TRABAJAMOS ── -->
+    <section id="como" class="sec">
+      <div class="wrap">
+        <div class="sec-head center">
+          <span class="eyebrow rv">Cómo trabajo</span>
+          <h2 class="rv">De la charla a funcionando, sin vueltas.</h2>
+        </div>
+        <ol class="steps" id="steps">
+          <li class="stp rv">
+            <span class="stp-n">01</span>
+            <h3>Charlamos 15 minutos</h3>
+            <p>Me contás cómo vendés hoy y qué te está comiendo tiempo. Sin compromiso y sin tecnicismos.</p>
+          </li>
+          <li class="stp rv d1">
+            <span class="stp-n">02</span>
+            <h3>Te digo qué conviene</h3>
+            <p>Si una app que ya existe lo resuelve, te la recomiendo. Si vale la pena construir algo, te paso
+              alcance, precio y plazo por escrito.</p>
+          </li>
+          <li class="stp rv d2">
+            <span class="stp-n">03</span>
+            <h3>Lo construyo a la vista</h3>
+            <p>Ves los avances. Lo probás con tus productos y tus clientes antes de activarlo.</p>
+          </li>
+          <li class="stp rv d3">
+            <span class="stp-n">04</span>
+            <h3>Queda andando</h3>
+            <p>Lo dejo funcionando, te muestro cómo usarlo y lo sigo de cerca las primeras semanas.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── EN PÚBLICO ── -->
+    <section id="en-publico" class="sec sec-alt">
+      <div class="wrap">
+        <div class="sec-head split-head">
+          <div>
+            <span class="eyebrow rv">Construyo en público</span>
+            <h2 class="rv">Muestro el trabajo mientras lo hago.</h2>
           </div>
+          <p class="sec-sub rv d1">El problema, cómo lo pensé y cómo quedó. Prefiero enseñarte algo
+            funcionando antes que explicarte lo que se podría hacer.</p>
+        </div>
 
-          <!-- Next.js Preview -->
-          <div class="stack-preview-item" data-preview="nextjs">
-            <div class="preview-ui">
-              <div class="ui-browser">
-                <div class="ui-browser-bar">
-                  <div class="ui-dot" style="background:#ff5f56;"></div>
-                  <div class="ui-dot" style="background:#ffbd2e;"></div>
-                  <div class="ui-dot" style="background:#27c93f;"></div>
-                  <div class="ui-browser-url">presupuestosya.app/dashboard</div>
-                </div>
-                <div class="ui-browser-body">
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
-                    <div>
-                      <div style="font-weight:700; font-size:1.1rem;">Dashboard</div>
-                      <div style="font-size:0.78rem; color:var(--text-muted);">Bienvenido, Carlos</div>
-                    </div>
-                    <div class="btn btn-primary" style="font-size:0.75rem; padding:0.4rem 0.8rem;">+ Nuevo presupuesto
-                    </div>
-                  </div>
-                  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; margin-bottom:1rem;">
-                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
-                      <div style="font-size:0.7rem; color:var(--text-muted);">Enviados</div>
-                      <div style="font-size:1.3rem; font-weight:800;">147</div>
-                    </div>
-                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
-                      <div style="font-size:0.7rem; color:var(--text-muted);">Aceptados</div>
-                      <div style="font-size:1.3rem; font-weight:800; color:#16a34a;">89</div>
-                    </div>
-                    <div style="background:var(--bg-muted); border-radius:8px; padding:0.8rem;">
-                      <div style="font-size:0.7rem; color:var(--text-muted);">Ingresos</div>
-                      <div style="font-size:1.3rem; font-weight:800;">$2.4M</div>
-                    </div>
-                  </div>
-                  <div style="background:var(--bg-muted); border-radius:8px; height:80px;"></div>
-                </div>
-              </div>
+        <div class="work-grid">
+          <article class="work spot rv" data-project="promoml" tabindex="0" role="button"
+            aria-label="Ver proyecto PromoML">
+            <div class="work-img"><img src="images/promoml/promo1.png" alt="" loading="lazy"></div>
+            <div class="work-body">
+              <span class="work-k">Promociones masivas · MercadoLibre</span>
+              <h3>PromoML</h3>
+              <p>Un vendedor con más de 2.000 publicaciones sumaba cada promo producto por producto y le llevaba
+                horas. Ahora arma grupos con filtros y los aplica a la promo de una sola vez.</p>
+              <span class="work-more">Ver cómo quedó →</span>
             </div>
+          </article>
+          <article class="work spot rv d1" data-project="nexa" tabindex="0" role="button"
+            aria-label="Ver proyecto Nexa Autos">
+            <div class="work-img"><img src="images/nexa/nexa2.png" alt="" loading="lazy"></div>
+            <div class="work-body">
+              <span class="work-k">Catálogo y stock · Agencia de autos</span>
+              <h3>Nexa Autos</h3>
+              <p>El stock cambiaba todas las semanas y la web nunca estaba al día. Ahora cargan o dan de baja un
+                auto en minutos y las consultas llegan directo a WhatsApp.</p>
+              <span class="work-more">Ver cómo quedó →</span>
+            </div>
+          </article>
+          <article class="work spot rv d2" data-project="presupuestosya" tabindex="0" role="button"
+            aria-label="Ver proyecto Presupuestos Ya">
+            <div class="work-img"><img src="images/prespuestosya/pya1.png" alt="" loading="lazy"></div>
+            <div class="work-body">
+              <span class="work-k">Producto propio · Suscripciones</span>
+              <h3>Presupuestos Ya</h3>
+              <p>Profesionales que perdían trabajos por tardar días en presupuestar. Ahora lo arman en un minuto,
+                con cobro de suscripción incluido.</p>
+              <span class="work-more">Ver cómo quedó →</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="social rv">
+          <div>
+            <strong>Lo próximo que construya lo vas a ver primero en redes.</strong>
+            <span>Casos de tiendas, demos y lo que se puede hacer hoy para vender online.</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/char.developer" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.tiktok.com/@char.developer" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://www.youtube.com/@char.developer" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.linkedin.com/in/arandacarlosdamian/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── TECH GRID ── -->
-  <section class="tech-grid-section">
-    <div class="wrap">
-      <div class="tech-grid rv">
-        <div class="tech-cell" style="--tech-color: #FF6E67">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>n8n</title><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg>
-          <span>n8n</span>
+    <!-- ── ENCAJA ── -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head center">
+          <span class="eyebrow rv">Hablemos claro</span>
+          <h2 class="rv">No es para todos. Y está bien.</h2>
+          <p class="sec-sub rv d1">Prefiero decirte que no te conviene antes que venderte algo que no necesitás.
+          </p>
         </div>
-        <div class="tech-cell" style="--tech-color: #3ECF8E">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Supabase</title><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg>
-          <span>Supabase</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #000000">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Next.js</title><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>
-          <span>Next.js</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #25D366">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          <span>WhatsApp API</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #108044">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Zoho</title><path d="M8.66 6.897a1.299 1.299 0 0 0-1.205.765l-.642 1.44-.062-.385A1.291 1.291 0 0 0 5.27 7.648l-4.185.678A1.291 1.291 0 0 0 .016 9.807l.678 4.18a1.293 1.293 0 0 0 1.27 1.087c.074 0 .143-.01.216-.017l4.18-.678c.436-.07.784-.351.96-.723l2.933 1.307a1.304 1.304 0 0 0 .988.026c.321-.12.575-.365.716-.678l.28-.629.038.276a1.297 1.297 0 0 0 1.455 1.103l3.712-.501a1.29 1.29 0 0 0 1.03.514h4.236c.713 0 1.29-.58 1.291-1.291V9.545c0-.712-.58-1.291-1.291-1.291h-4.236c-.079 0-.155.008-.23.022a1.309 1.309 0 0 0-.275-.288c-.275-.21-.614-.3-.958-.253l-4.197.571c-.155.021-.3.07-.432.14L9.159 7.01a1.27 1.27 0 0 0-.499-.113zm-.025.705c.077 0 .159.013.24.052l2.971 1.324c-.128.238-.18.508-.142.782l.357 2.596h.002l-.745 1.672a.59.59 0 0 1-.777.296l-3.107-1.385-.004-.041-.41-2.526L8.1 7.95a.589.589 0 0 1 .536-.348zm-3.159.733c.125 0 .245.039.343.112.13.09.21.227.237.382l.234 1.446-.56 1.259a1.27 1.27 0 0 0-.026.987c.12.322.364.575.678.717l.295.131a.585.585 0 0 1-.428.314l-4.185.678a.59.59 0 0 1-.674-.485l-.678-4.18a.588.588 0 0 1 .485-.674l4.185-.678c.03-.004.064-.01.094-.01zm11.705.09a.59.59 0 0 1 .415.173 1.287 1.287 0 0 0-.416.947v4.237c0 .033.003.065.005.097l-3.55.482a.586.586 0 0 1-.66-.502l-.191-1.403.899-2.017a1.29 1.29 0 0 0-.333-1.5l3.754-.51c.026-.004.051-.004.077-.004zm1.3.532h4.227c.326 0 .588.266.588.588v4.237a.589.589 0 0 1-.588.588h-4.237a.564.564 0 0 1-.12-.013c.47-.246.758-.765.684-1.318zm-5.988.309.254.113c.296.133.43.48.296.777l-.432.97-.207-1.465a.58.58 0 0 1 .09-.395zm5.39.538.453 3.325a.583.583 0 0 1-.453.65zM6.496 11.545l.17 1.052a.588.588 0 0 1-.293-.776zm3.985 4.344a.588.588 0 0 0-.612.603c0 .358.244.61.601.61a.582.582 0 0 0 .607-.608c0-.35-.242-.605-.596-.605zm5.545 0a.588.588 0 0 0-.612.603c0 .358.245.61.602.61a.582.582 0 0 0 .606-.608c0-.35-.24-.605-.596-.605zm-8.537.018a.047.047 0 0 0-.048.047v.085c0 .026.021.047.048.047h.52l-.623.9a.052.052 0 0 0-.009.027v.027c0 .026.021.047.048.047h.815a.047.047 0 0 0 .047-.047v-.085a.047.047 0 0 0-.047-.047h-.55l.606-.9a.05.05 0 0 0 .008-.026v-.028a.047.047 0 0 0-.047-.047zm5.303 0a.047.047 0 0 0-.047.047v1.086c0 .026.02.047.047.047h.135a.047.047 0 0 0 .047-.047v-.454h.545v.454c0 .026.02.047.047.047h.134a.047.047 0 0 0 .047-.047v-1.086a.047.047 0 0 0-.047-.047h-.134a.047.047 0 0 0-.047.047v.453h-.545v-.453a.047.047 0 0 0-.047-.047zm-2.324.164c.25 0 .372.194.372.425 0 .219-.109.425-.358.426-.242 0-.375-.197-.375-.419 0-.235.108-.432.36-.432zm5.545 0c.25 0 .372.194.372.425 0 .219-.108.425-.358.426-.242 0-.374-.197-.374-.419 0-.235.108-.432.36-.432z"/></svg>
-          <span>Zoho</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #96588A">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WooCommerce</title><path d="M.754 9.58a.754.754 0 00-.754.758v2.525c0 .42.339.758.758.758h3.135l1.431.799-.326-.799h2.373a.757.757 0 00.758-.758v-2.525a.757.757 0 00-.758-.758H.754zm2.709.445h.03c.065.001.124.023.179.067a.26.26 0 01.103.19.29.29 0 01-.033.16c-.13.239-.236.64-.322 1.199-.083.541-.114.965-.094 1.267a.392.392 0 01-.039.219.213.213 0 01-.176.12c-.086.006-.177-.034-.263-.124-.31-.316-.555-.788-.735-1.416-.216.425-.375.744-.478.957-.196.376-.363.568-.502.578-.09.007-.166-.069-.233-.228-.17-.436-.352-1.277-.548-2.524a.297.297 0 01.054-.222c.047-.064.116-.095.21-.102.169-.013.265.065.288.238.103.695.217 1.284.336 1.766l.727-1.387c.066-.126.15-.192.25-.199.146-.01.237.083.273.28.083.441.188.817.315 1.136.086-.844.233-1.453.44-1.828a.255.255 0 01.218-.147zm1.293.36c.056 0 .116.006.18.02.232.05.411.177.53.386.107.18.161.395.161.654 0 .343-.087.654-.26.94-.2.332-.459.5-.781.5a.88.88 0 01-.18-.022.763.763 0 01-.531-.384 1.287 1.287 0 01-.158-.659c0-.342.085-.655.258-.937.202-.333.462-.498.78-.498zm2.084 0c.056 0 .116.006.18.02.236.05.411.177.53.386.107.18.16.395.16.654 0 .343-.086.654-.259.94-.2.332-.459.5-.781.5a.88.88 0 01-.18-.022.763.763 0 01-.531-.384 1.287 1.287 0 01-.16-.659c0-.342.087-.655.26-.937.202-.333.462-.498.78-.498zm4.437.047c-.305 0-.546.102-.718.304-.173.203-.256.49-.256.856 0 .395.086.697.256.906.17.21.418.316.744.316.315 0 .559-.107.728-.316.17-.21.256-.504.256-.883s-.087-.673-.26-.879c-.176-.202-.424-.304-.75-.304zm-1.466.002a1.13 1.13 0 00-.84.326c-.223.22-.332.499-.332.838 0 .362.108.658.328.88.22.223.505.336.861.336.103 0 .22-.016.346-.052v-.54c-.117.034-.216.051-.303.051a.545.545 0 01-.422-.177c-.106-.12-.16-.278-.16-.48 0-.19.053-.348.156-.468a.498.498 0 01.397-.181c.103 0 .212.015.332.049v-.537a1.394 1.394 0 00-.363-.045zm12.414 0a1.135 1.135 0 00-.84.326c-.223.22-.332.499-.332.838 0 .362.108.658.328.88.22.223.506.336.861.336.103 0 .22-.016.346-.052v-.54c-.116.034-.216.051-.303.051a.545.545 0 01-.422-.177c-.106-.12-.16-.278-.16-.48 0-.19.053-.348.156-.468a.498.498 0 01.397-.181c.103 0 .212.015.332.049v-.537a1.394 1.394 0 00-.363-.045zm-9.598.06l-.29 2.264h.579l.156-1.559.395 1.559h.412l.379-1.555.164 1.555h.603l-.304-2.264h-.791l-.12.508c-.03.13-.06.264-.087.4l-.067.352a29.97 29.97 0 00-.258-1.26h-.771zm2.768 0l-.29 2.264h.579l.156-1.559.396 1.559h.412l.375-1.555.165 1.555h.603l-.305-2.264h-.789l-.119.508c-.03.13-.06.264-.086.4l-.066.352c-.063-.352-.15-.771-.26-1.26h-.771zm3.988 0v2.264h.611v-1.031h.012l.494 1.03h.645l-.489-1.019a.61.61 0 00.37-.552.598.598 0 00-.25-.506c-.167-.123-.394-.186-.68-.186h-.713zm3.377 0v2.264H24v-.483h-.63v-.414h.54v-.468h-.54v-.416h.626v-.483H22.76zm-4.793.004v2.264h1.24v-.483h-.627v-.416h.541v-.468h-.54v-.415h.622v-.482h-1.236zm2.025.432c.146.003.25.025.313.072.063.046.091.12.091.227 0 .156-.135.236-.404.24v-.54zm-15.22.011c-.104 0-.205.069-.301.211a1.078 1.078 0 00-.2.639c0 .096.02.2.06.303.049.13.117.198.196.215.083.016.173-.02.27-.106.123-.11.205-.273.252-.492.016-.077.023-.16.023-.246 0-.097-.02-.2-.06-.303-.05-.13-.116-.198-.196-.215a.246.246 0 00-.045-.006zm2.083 0c-.103 0-.204.069-.3.211a1.078 1.078 0 00-.2.639c0 .096.02.2.06.303.049.13.117.198.196.215.083.016.173-.02.27-.106.123-.11.205-.273.252-.492.013-.077.023-.16.023-.246 0-.097-.02-.2-.06-.303-.05-.13-.116-.198-.196-.215a.246.246 0 00-.045-.006zm4.428.006c.233 0 .354.218.354.66-.004.273-.038.46-.098.553a.293.293 0 01-.262.139.266.266 0 01-.242-.139c-.056-.093-.084-.28-.084-.562 0-.436.11-.65.332-.65Z"/></svg>
-          <span>WooCommerce</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #000000">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>JSON</title><path d="M12.043 23.968c.479-.004.953-.029 1.426-.094a11.805 11.805 0 003.146-.863 12.404 12.404 0 003.793-2.542 11.977 11.977 0 002.44-3.427 11.794 11.794 0 001.02-3.476c.149-1.16.135-2.346-.045-3.499a11.96 11.96 0 00-.793-2.788 11.197 11.197 0 00-.854-1.617c-1.168-1.837-2.861-3.314-4.81-4.3a12.835 12.835 0 00-2.172-.87h-.005c.119.063.24.132.345.201.12.074.239.146.351.225a8.93 8.93 0 011.559 1.33c1.063 1.145 1.797 2.548 2.218 4.041.284.982.434 1.998.495 3.017.044.743.044 1.491-.047 2.229-.149 1.27-.554 2.51-1.228 3.596a7.475 7.475 0 01-1.903 2.084c-1.244.928-2.877 1.482-4.436 1.114a3.916 3.916 0 01-.748-.258 4.692 4.692 0 01-.779-.45 6.08 6.08 0 01-1.244-1.105 6.507 6.507 0 01-1.049-1.747 7.366 7.366 0 01-.494-2.54c-.03-1.273.225-2.553.854-3.67a6.43 6.43 0 011.663-1.918c.225-.178.464-.333.704-.479l.016-.007a5.121 5.121 0 00-1.441-.12 4.963 4.963 0 00-1.228.24c-.359.12-.704.27-1.019.45a6.146 6.146 0 00-.733.494c-.211.18-.42.36-.615.555-1.123 1.153-1.768 2.682-2.022 4.256-.15.973-.15 1.96-.091 2.95.105 1.395.391 2.787.945 4.062a8.518 8.518 0 001.348 2.173 8.14 8.14 0 003.132 2.23 7.934 7.934 0 002.113.54c.074.015.149.015.209.015zm-2.934-.398a4.102 4.102 0 01-.45-.228 8.5 8.5 0 01-2.038-1.534c-1.094-1.137-1.827-2.566-2.247-4.08a15.184 15.184 0 01-.495-3.172 12.14 12.14 0 01.046-2.082c.135-1.257.495-2.501 1.124-3.58a6.889 6.889 0 011.783-2.053 6.23 6.23 0 011.633-.9 5.363 5.363 0 013.522-.045c.029 0 .029 0 .045.03.015.015.045.015.06.03.045.016.104.045.165.074.239.12.479.271.704.42a6.294 6.294 0 012.097 2.502c.42.914.615 1.934.631 2.938.014 1.079-.18 2.157-.645 3.146a6.42 6.42 0 01-2.638 2.832c.09.03.18.045.271.075.225.044.449.074.688.074 1.468.045 2.892-.66 3.94-1.647.195-.18.375-.375.54-.585.225-.27.435-.54.614-.823.239-.375.435-.75.614-1.154a8.112 8.112 0 00.509-1.664c.196-1.004.211-2.022.149-3.026-.135-2.022-.673-4.045-1.842-5.724a9.054 9.054 0 00-.555-.719 9.868 9.868 0 00-1.063-1.034 8.477 8.477 0 00-1.363-.915 9.927 9.927 0 00-1.692-.598l-.3-.06c-.209-.03-.42-.044-.634-.06a8.453 8.453 0 00-1.015.016c-.704.045-1.412.16-2.112.337C5.799 1.227 2.863 3.566 1.3 6.67A11.834 11.834 0 00.238 9.801a11.81 11.81 0 00-.104 3.775c.12 1.02.374 2.023.778 2.977.227.57.511 1.124.825 1.648 1.094 1.783 2.683 3.236 4.51 4.24.688.39 1.408.69 2.157.944.226.074.45.15.689.21z"/></svg>
-          <span>REST APIs</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #5FA04E">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Node.js</title><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg>
-          <span>Node.js</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #4285F4">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Cloud</title><path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"/></svg>
-          <span>GCP</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #00B1EA">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Mercado Pago</title><path d="M11.115 16.479a.93.927 0 0 1-.939-.886c-.002-.042-.006-.155-.103-.155-.04 0-.074.023-.113.059-.112.103-.254.206-.46.206a.816.814 0 0 1-.305-.066c-.535-.214-.542-.578-.521-.725.006-.038.007-.08-.02-.11l-.032-.03h-.034c-.027 0-.055.012-.093.039a.788.786 0 0 1-.454.16.7.699 0 0 1-.253-.05c-.708-.27-.65-.928-.617-1.126.005-.041-.005-.072-.03-.092l-.05-.04-.047.043a.728.726 0 0 1-.505.203.73.728 0 0 1-.732-.725c0-.4.328-.722.732-.722.364 0 .675.27.721.63l.026.195.11-.165c.01-.018.307-.46.852-.46.102 0 .21.016.316.05.434.13.508.52.519.68.008.094.075.1.09.1.037 0 .064-.024.083-.045a.746.744 0 0 1 .54-.225c.128 0 .263.03.402.09.69.293.379 1.158.374 1.167-.058.144-.061.207-.005.244l.027.013h.02c.03 0 .07-.014.134-.035.093-.032.235-.08.367-.08a.944.942 0 0 1 .94.93.936.934 0 0 1-.94.928zm7.302-4.171c-1.138-.98-3.768-3.24-4.481-3.77-.406-.302-.685-.462-.928-.533a1.559 1.554 0 0 0-.456-.07c-.182 0-.376.032-.58.095-.46.145-.918.505-1.362.854l-.023.018c-.414.324-.84.66-1.164.73a1.986 1.98 0 0 1-.43.049c-.362 0-.687-.104-.81-.258-.02-.025-.007-.066.04-.125l.008-.008 1-1.067c.783-.774 1.525-1.506 3.23-1.545h.085c1.062 0 2.12.469 2.24.524a7.03 7.03 0 0 0 3.056.724c1.076 0 2.188-.263 3.354-.795a9.135 9.11 0 0 0-.405-.317c-1.025.44-2.003.66-2.946.66-.962 0-1.925-.229-2.858-.68-.05-.022-1.22-.567-2.44-.57-.032 0-.065 0-.096.002-1.434.033-2.24.536-2.782.976-.528.013-.982.138-1.388.25-.361.1-.673.186-.979.185-.125 0-.35-.01-.37-.012-.35-.01-2.115-.437-3.518-.962-.143.1-.28.203-.415.31 1.466.593 3.25 1.053 3.812 1.089.157.01.323.027.491.027.372 0 .744-.103 1.104-.203.213-.059.446-.123.692-.17l-.196.194-1.017 1.087c-.08.08-.254.294-.14.557a.705.703 0 0 0 .268.292c.243.162.677.27 1.08.271.152 0 .297-.015.43-.044.427-.095.874-.448 1.349-.82.377-.296.913-.672 1.323-.782a1.494 1.49 0 0 1 .37-.05.611.61 0 0 1 .095.005c.27.034.533.125 1.003.472.835.62 4.531 3.815 4.566 3.846.002.002.238.203.22.537-.007.186-.11.352-.294.466a.902.9 0 0 1-.484.15.804.802 0 0 1-.428-.124c-.014-.01-1.28-1.157-1.746-1.543-.074-.06-.146-.115-.22-.115a.122.122 0 0 0-.096.045c-.073.09.01.212.105.294l1.48 1.47c.002 0 .184.17.204.395.012.244-.106.447-.35.606a.957.955 0 0 1-.526.171.766.764 0 0 1-.42-.127l-.214-.206a21.035 20.978 0 0 0-1.08-1.009c-.072-.058-.148-.112-.221-.112a.127.127 0 0 0-.094.038c-.033.037-.056.103.028.212a.698.696 0 0 0 .075.083l1.078 1.198c.01.01.222.26.024.511l-.038.048a1.18 1.178 0 0 1-.1.096c-.184.15-.43.164-.527.164a.8.798 0 0 1-.147-.012c-.106-.018-.178-.048-.212-.089l-.013-.013c-.06-.06-.602-.609-1.054-.98-.059-.05-.133-.11-.21-.11a.128.128 0 0 0-.096.042c-.09.096.044.24.1.293l.92 1.003a.204.204 0 0 1-.033.062c-.033.044-.144.155-.479.196a.91.907 0 0 1-.122.007c-.345 0-.712-.164-.902-.264a1.343 1.34 0 0 0 .13-.576 1.368 1.365 0 0 0-1.42-1.357c.024-.342-.025-.99-.697-1.274a1.455 1.452 0 0 0-.575-.125c-.146 0-.287.025-.42.075a1.153 1.15 0 0 0-.671-.564 1.52 1.515 0 0 0-.494-.085c-.28 0-.537.08-.767.242a1.168 1.165 0 0 0-.903-.43 1.173 1.17 0 0 0-.82.335c-.287-.217-1.425-.93-4.467-1.613a17.39 17.344 0 0 1-.692-.189 4.822 4.82 0 0 0-.077.494l.67.157c3.108.682 4.136 1.391 4.309 1.525a1.145 1.142 0 0 0-.09.442 1.16 1.158 0 0 0 1.378 1.132c.096.467.406.821.879 1.003a1.165 1.162 0 0 0 .415.08c.09 0 .179-.012.266-.034.086.22.282.493.722.668a1.233 1.23 0 0 0 .457.094c.122 0 .241-.022.355-.063a1.373 1.37 0 0 0 1.269.841c.37.002.726-.147.985-.41.221.121.688.341 1.163.341.06 0 .118-.002.175-.01.47-.059.689-.24.789-.382a.571.57 0 0 0 .048-.078c.11.032.234.058.373.058.255 0 .501-.086.75-.265.244-.174.418-.424.444-.637v-.01c.083.017.167.026.251.026.265 0 .527-.082.773-.242.48-.31.562-.715.554-.98a1.28 1.279 0 0 0 .978-.194 1.04 1.04 0 0 0 .502-.808 1.088 1.085 0 0 0-.16-.653c.804-.342 2.636-1.003 4.795-1.483a4.734 4.721 0 0 0-.067-.492 27.742 27.667 0 0 0-5.049 1.62zm5.123-.763c0 4.027-5.166 7.293-11.537 7.293-6.372 0-11.538-3.266-11.538-7.293 0-4.028 5.165-7.293 11.539-7.293 6.371 0 11.537 3.265 11.537 7.293zm.46.004c0-4.272-5.374-7.755-12-7.755S.002 7.277.002 11.55L0 12.004c0 4.533 4.695 8.203 11.999 8.203 7.347 0 12-3.67 12-8.204z"/></svg>
-          <span>MercadoPago</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #95BF47">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Shopify</title><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg>
-          <span>Shopify</span>
-        </div>
-        <div class="tech-cell" style="--tech-color: #0468FF">
-          <svg viewBox="0 0 24 24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Meta</title><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg>
-          <span>Meta</span>
+        <div class="fit">
+          <div class="fit-col yes rv">
+            <h3><span>✓</span> Te va a servir si…</h3>
+            <ul>
+              <li>Ya vendés y tenés un volumen que te ocupa el día</li>
+              <li>Respondés preguntas y mensajes todo el tiempo, incluso de noche</li>
+              <li>Vendés en más de un canal y el stock se te desacomoda</li>
+              <li>Sentís que se escapan ventas por no llegar a todo</li>
+            </ul>
+          </div>
+          <div class="fit-col no rv d1">
+            <h3><span>–</span> Quizás todavía no, si…</h3>
+            <ul>
+              <li>Estás arrancando y vendés pocas unidades por semana: una app de tu tienda probablemente alcance</li>
+              <li>Ya existe una herramienta que resuelve lo tuyo: te la voy a recomendar</li>
+              <li>Buscás reemplazar del todo a tu equipo: un asistente saca trabajo repetitivo, no reemplaza el
+                criterio de una persona</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── CONTACTO ── -->
-  <section id="contacto" class="contact-section">
-    <div class="wrap">
-      <div class="contact-inner">
-        <span class="sec-label rv">Contacto</span>
-        <h2 class="rv">¿Empezamos?</h2>
-        <div class="contact-cards">
-          <div class="contact-card rv">
-            <h3>¿No sabés bien qué necesitás?</h3>
-            <p>Contame cómo opera tu negocio y dónde se pierde tiempo. Te respondo con un diagnóstico honesto.</p>
-            <form class="cform" id="contactForm">
-              <input type="hidden" name="access_key" value="6b1c3d16-a56e-4ca8-bf99-e561f0416803">
-              <input type="hidden" name="subject" value="Nuevo Lead desde tu Web - Char.Developer">
-              <input type="hidden" name="from_name" value="Char.Developer Web">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Tu Nombre</label>
-                  <input type="text" id="name" name="name" required placeholder="Ej: Carlos Aranda">
-                </div>
-                <div class="form-group">
-                  <label for="email">Tu Email</label>
-                  <input type="email" id="email" name="email" required placeholder="tu@correo.com">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message">¿En qué te puedo ayudar?</label>
-                <textarea id="message" name="message" rows="3" required
-                  placeholder="Contame un poco de tu caso..."></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary"
-                style="width:100%; justify-content:center; margin-top:0.5rem;">Enviar consulta →</button>
-            </form>
+    <!-- ── QUIÉN ── -->
+    <section id="quien" class="sec sec-alt">
+      <div class="wrap about">
+        <div class="about-photo rv">
+          <div class="about-frame">
+            <img src="images/carlos.jpg" alt="Carlos Aranda, fundador de char.developer" loading="lazy">
           </div>
-          <div class="contact-card rv d1">
-            <h3>¿Preferís ir al grano?</h3>
-            <p>Mandame un mensaje por WhatsApp o agendá directamente una llamada de 15 minutos.</p>
-            <div style="display:flex; flex-direction:column; gap:0.75rem;">
-              <a href="https://wa.me/5491173644722" class="btn btn-dark" target="_blank" rel="noopener"
-                style="justify-content:center;">Abrir WhatsApp →</a>
-              <a href="https://cal.com/char.developer/15min" class="btn btn-outline" target="_blank" rel="noopener"
-                style="justify-content:center;">Agendar llamada →</a>
+          <div class="about-badge">
+            <strong>6+ años</strong>
+            <span>integrando sistemas enterprise</span>
+          </div>
+          <div class="about-badge mates">
+            <strong><svg viewBox="0 0 24 12" width="30" height="15" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 6c-2-2.7-3.6-4-5.5-4a4 4 0 000 8C8.4 10 10 8.7 12 6zm0 0c2 2.7 3.6 4 5.5 4a4 4 0 000-8C15.6 2 14 3.3 12 6z" />
+              </svg><span class="sr-only">Infinitos</span></strong>
+            <span>mates tomados</span>
+          </div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow rv">Quién está detrás</span>
+          <h2 class="rv">Carlos Aranda</h2>
+          <p class="about-lead rv d1">Ingeniero en sistemas. Más de 6 años construyendo integraciones para Oracle,
+            retailers internacionales y consultoras.</p>
+          <p class="rv d1">Vengo de sistemas donde un error significa miles de pedidos mal procesados. Ahí aprendí a
+            conectar sistemas que no fueron hechos para hablarse entre sí.</p>
+          <p class="rv d2">Eso es exactamente lo que necesita un negocio que tiene el stock en un lado, las ventas en
+            otro y los clientes preguntando en un tercero. Hoy aplico esa misma ingeniería a tiendas que venden
+            online. Y trabajás directo conmigo, de principio a fin.</p>
+          <div class="chips rv d3">
+            <span>Oracle Integration Certified</span>
+            <span>PL/SQL Certified</span>
+            <span>Retail internacional</span>
+            <span>Buenos Aires · remoto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="quotes">
+          <figure class="quote spot rv">
+            <blockquote>“Carlos se integró al equipo muy rápido y desde el primer momento demostró buena actitud y
+              ganas de aprender. Es una persona comprometida, responsable y muy fácil para trabajar.”</blockquote>
+            <figcaption><span class="av">NE</span>
+              <div><strong>Nes E.</strong><small>Tech Lead · Cloud Solutions Latam · Zoho</small></div>
+            </figcaption>
+          </figure>
+          <figure class="quote spot rv d1">
+            <blockquote>“Trabajé con Carlos en proyectos de OIC y puedo decir que es una persona con mucha
+              capacidad de aprendizaje y muy buena predisposición. Siempre con ganas de entender el fondo de las
+              cosas.”</blockquote>
+            <figcaption><span class="av">PV</span>
+              <div><strong>Pablo V.</strong><small>OIC Specialist · Oracle</small></div>
+            </figcaption>
+          </figure>
+          <figure class="quote spot rv d2">
+            <blockquote>“Contraté a Carlos para un rol de desarrollo después de un tiempo que no tocaba código y
+              aposté por él. No me equivoqué. Se adaptó rápido a un entorno exigente. Gran profesional.”</blockquote>
+            <figcaption><span class="av">JO</span>
+              <div><strong>Jonathan O.</strong><small>Engineering Manager · Zinier</small></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section id="preguntas" class="sec">
+      <div class="wrap faq-wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Preguntas frecuentes</span>
+          <h2 class="rv">Lo que me suelen preguntar.</h2>
+          <p class="sec-sub rv d1">¿Tenés otra duda? Escribime por WhatsApp y te respondo yo, no un
+            asistente.</p>
+        </div>
+        <div class="faq rv d1">
+          <details>
+            <summary>¿Tengo que cambiar de plataforma?</summary>
+            <p>No. Trabajo con lo que ya usás: Tienda Nube, Shopify, WooCommerce, MercadoLibre, Mercado Pago,
+              WhatsApp. Lo que construyo se conecta a eso.</p>
+          </details>
+          <details>
+            <summary>¿Necesito saber de tecnología?</summary>
+            <p>Para nada. Vos me contás cómo funciona tu negocio y yo me ocupo de la parte técnica. Te
+              explico todo en criollo.</p>
+          </details>
+          <details>
+            <summary>¿El asistente puede responder cualquier cosa?</summary>
+            <p>Responde bien lo que sabe de tu negocio: productos, stock, envíos, medios de pago, políticas. Cuando
+              algo se sale de eso, no inventa: lo deriva a una persona de tu equipo. Lo configuramos juntos y lo
+              probás antes de activarlo.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto cuesta?</summary>
+            <p>Depende de qué haya que resolver y qué sistemas conectar. Después de la primera charla te paso un
+              presupuesto cerrado por escrito, sin sorpresas. Si no te cierra, no pasa nada.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tarda?</summary>
+            <p>Una solución puntual suele estar andando en pocas semanas. Te doy el plazo antes de arrancar, y
+              vas viendo los avances en el camino.</p>
+          </details>
+          <details>
+            <summary>¿Y si algo deja de funcionar?</summary>
+            <p>Dejo todo monitoreado para enterarme antes que vos. Y sigo cerca después del lanzamiento:
+              no te dejo solo con algo que no entendés.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACTO ── -->
+    <section id="contacto" class="sec cta-sec">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="cta-box">
+          <div class="cta-copy">
+            <span class="eyebrow">Hablemos</span>
+            <h2>Si vendés online y algo de esto te sirve, <em>hablemos.</em></h2>
+            <p>Contame qué te está comiendo tiempo o costando ventas. Te respondo con una opinión honesta,
+              aunque la respuesta sea “esto no lo necesitás”.</p>
+            <div class="cta-direct">
+              <a href="https://wa.me/5491173644722?text=Hola%20Carlos%2C%20vendo%20online%20y%20quer%C3%ADa%20consultarte%20por..."
+                class="btn btn-wa" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41z" />
+                </svg>
+                Escribime por WhatsApp
+              </a>
+              <a href="https://cal.com/char.developer/15min" class="btn btn-ghost" target="_blank"
+                rel="noopener">Agendá 15 minutos →</a>
             </div>
           </div>
+
+          <form class="form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="6b1c3d16-a56e-4ca8-bf99-e561f0416803">
+            <input type="hidden" name="subject" value="Nuevo contacto desde la web — char.developer">
+            <input type="hidden" name="from_name" value="char.developer web">
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+            <div class="f-row">
+              <label class="f">
+                <span>Tu nombre</span>
+                <input type="text" name="name" required placeholder="Sofía" autocomplete="name">
+              </label>
+              <label class="f">
+                <span>Email o WhatsApp</span>
+                <input type="text" name="email" required placeholder="sofi@mitienda.com" autocomplete="email">
+              </label>
+            </div>
+
+            <fieldset class="f">
+              <legend>¿Dónde vendés?</legend>
+              <div class="opts">
+                <label><input type="checkbox" name="plataformas" value="Tienda Nube"><span>Tienda Nube</span></label>
+                <label><input type="checkbox" name="plataformas" value="Shopify"><span>Shopify</span></label>
+                <label><input type="checkbox" name="plataformas" value="WooCommerce"><span>WooCommerce</span></label>
+                <label><input type="checkbox" name="plataformas" value="MercadoLibre"><span>MercadoLibre</span></label>
+                <label><input type="checkbox" name="plataformas" value="Otro"><span>Otro</span></label>
+              </div>
+            </fieldset>
+
+            <label class="f">
+              <span>¿Qué te está comiendo tiempo?</span>
+              <textarea name="message" rows="3" required
+                placeholder="Ej: respondo preguntas de MercadoLibre hasta las 12 de la noche…"></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar <span class="arr">→</span></button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ── FOOTER ── -->
-  <footer>
-    <div class="foot-i">
+  <footer class="foot">
+    <div class="wrap foot-in">
       <div>
-        <div class="foot-logo">Char<span>.</span>Developer</div>
-        <div class="foot-sub">Páginas web, aplicaciones, chatbots e integraciones · Buenos Aires, Argentina</div>
+        <a href="#top" class="logo"><span>char<span class="logo-dot">.</span>developer</span></a>
+        <p>Soluciones para negocios que venden online. Buenos Aires, Argentina.</p>
       </div>
-      <div class="foot-soc">
-        <a href="https://www.linkedin.com/in/arandacarlosdamian/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/char.developer/" target="_blank" rel="noopener">Instagram</a>
+      <nav class="foot-links" aria-label="Redes">
+        <a href="https://www.instagram.com/char.developer" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@char.developer" target="_blank" rel="noopener">TikTok</a>
-      </div>
-      <div class="foot-copy">Char.Developer © 2026 — Buenos Aires, AR 🇦🇷</div>
+        <a href="https://www.youtube.com/@char.developer" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/arandacarlosdamian/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+      <p class="foot-copy">© 2026 char.developer · Buenos Aires, AR</p>
     </div>
   </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5491173644722" class="wa-float" target="_blank" rel="noopener"
+    aria-label="Escribime por WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+      <path
+        d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41z" />
+    </svg>
+  </a>
+
+  <!-- ── MODAL PROYECTOS ── -->
+  <div class="modal-bd" id="modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mName">
+      <button class="modal-x" id="modalClose" aria-label="Cerrar">✕</button>
+      <div class="slider">
+        <div class="slider-track" id="sTrack"></div>
+        <button class="s-btn prev" id="sPrev" aria-label="Anterior">‹</button>
+        <button class="s-btn next" id="sNext" aria-label="Siguiente">›</button>
+        <div class="s-dots" id="sDots"></div>
+      </div>
+      <div class="modal-body">
+        <span class="work-k" id="mKind"></span>
+        <h3 id="mName"></h3>
+        <p id="mDesc"></p>
+        <div class="chips" id="mTags"></div>
+        <div class="modal-actions">
+          <a href="#" id="mLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Verlo en vivo →</a>
+          <a href="#contacto" class="btn btn-ghost btn-sm" id="mTalk">¿Querés algo así? Hablemos</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
