@@ -289,13 +289,13 @@
       link: 'https://promo.chardeveloper.com.ar/',
       images: ['images/promoml/promo1.png', 'images/promoml/promo2.png', 'images/promoml/promo3.png']
     },
-    nexa: {
-      kind: 'Catálogo y stock · Agencia de autos',
-      name: 'Nexa Autos',
-      desc: 'Web para una agencia de autos usados. Catálogo con filtros por marca y precio, ficha de cada vehículo, consultas directas por WhatsApp y un panel para cargar, editar o dar de baja autos en minutos, sin depender de nadie.',
-      tags: ['Stock siempre al día', 'Panel propio', 'Consultas por WhatsApp'],
-      link: 'https://nexa-autos.vercel.app/',
-      images: ['images/nexa/nexa1.png', 'images/nexa/nexa2.png', 'images/nexa/nexa3.png', 'images/nexa/nexa4.png']
+    hardex: {
+      kind: 'Marketplace · Hardware certificado',
+      name: 'Hardex',
+      desc: 'El primer exchange de hardware en Argentina. El vendedor elige su modelo y el estado del equipo, y en el momento recibe un rango de oferta. Después lo envía, se testea y se publica certificado en el marketplace. Cada venta tiene su seguimiento paso a paso, de la revisión al pago, y un panel interno para gestionar cotizaciones, inventario y finanzas.',
+      tags: ['Cotización en 2 min', 'Hardware 100% testeado', 'Seguimiento paso a paso', 'Panel de gestión'],
+      link: 'https://hardex.vercel.app/',
+      images: ['images/hardex/hardex1.png', 'images/hardex/hardex3.png']
     },
     presupuestosya: {
       kind: 'Producto propio · Suscripciones',
